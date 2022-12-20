@@ -1,16 +1,52 @@
 @use "../../styles/utils" as *;
 @use "../../styles/typography" as *;
 
-// .container {}
+.section {
+	background: var(--color-black);
+}
+
+.container {
+	@include grid-xs;
+	padding-top: getSpacing(4);
+	padding-bottom: getSpacing(4);
+}
+
+.title {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: var(--color-white);
+
+	& > * {
+		@include text-heading-m;
+	}
+}
 
 // ------------------------------------------------------------
 //  MD
 // ------------------------------------------------------------
 
-// @include media("md") {}
+@include media("md") {
+	.container {
+		@include grid-md;
+		padding-top: getSpacing(12);
+		padding-bottom: getSpacing(12);
+	}
+
+	.title {
+		& > * {
+			@include text-heading-xl;
+		}
+	}
+}
 
 // ------------------------------------------------------------
 //  LG
 // ------------------------------------------------------------
 
-// @include media("lg") {}
+@include media("lg") {
+	.container {
+		@include grid-lg;
+		padding-top: getSpacing(12);
+		padding-bottom: getSpacing(12);
+	}
+}
