@@ -1,18 +1,79 @@
-@import "./fonts";
+@mixin text-heading-xxl {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 3.5rem;
+	line-height: 3.63rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
 
-// @mixin text-heading-xxl {
-// 	font-family: Manrope-Bold, sans-serif;
-// 	font-weight: 700;
-// 	font-size: 3.5rem;
-// 	line-height: 3.63rem;
-// 	letter-spacing: 2px;
-// 	text-transform: uppercase;
-// }
+@mixin text-heading-xl {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 2.5rem;
+	line-height: 2.75rem;
+	letter-spacing: 1.5px;
+	text-transform: uppercase;
+}
 
-// @mixin text-body {
-// 	font-family: Manrope-Medium, sans-serif;
-// 	font-weight: 500;
-// 	font-size: 0.94rem;
-// 	line-height: 1.56rem;
-// 	letter-spacing: 1px;
-// }
+@mixin text-heading-l {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 2rem;
+	line-height: 2.25rem;
+	letter-spacing: 1.15px;
+	text-transform: uppercase;
+}
+
+@mixin text-heading-m {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 1.75rem;
+	line-height: 2.38rem;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+@mixin text-heading-s {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	line-height: 2.06rem;
+	letter-spacing: 1.7px;
+	text-transform: uppercase;
+}
+
+@mixin text-heading-xs {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 1.13rem;
+	line-height: 1.5rem;
+	letter-spacing: 1.3px;
+	text-transform: uppercase;
+}
+
+@mixin text-overline {
+	font-family: Manrope-Regular, sans-serif;
+	font-weight: 400;
+	font-size: 0.88rem;
+	line-height: 1.19rem;
+	letter-spacing: 10px;
+	text-transform: uppercase;
+}
+
+@mixin text-label {
+	font-family: Manrope-Bold, sans-serif;
+	font-weight: 700;
+	font-size: 0.81rem;
+	line-height: 1.56rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+@mixin text-body {
+	font-family: Manrope-Medium, sans-serif;
+	font-weight: 500;
+	font-size: 0.94rem;
+	line-height: 1.56rem;
+	letter-spacing: 1px;
+}
