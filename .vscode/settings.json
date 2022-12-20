@@ -1,0 +1,28 @@
+{
+	"files.exclude": {
+		".git/": true,
+		"node_modules/": false,
+		".next/": false
+	},
+
+	"search.exclude": {
+		"**/node_modules": true,
+		"**/.next": true
+	},
+
+	"css.validate": false,
+	"less.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": ["css", "scss"],
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[scss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+
+	"editor.detectIndentation": true,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"extends": "stylelint-config-standard-scss",
+	"rules": {
+		"color-hex-length": "long",
+		"color-hex-case": "upper",
+		"string-quotes": "double",
+		"indentation": "tab",
+		"declaration-empty-line-before": "never",
+		"function-name-case": null,
+		"scss/dollar-variable-pattern": null,
+		"scss/at-mixin-pattern": null,
+		"scss/at-function-pattern": null
+	}
+}

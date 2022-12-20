@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "→ Type checking" && npx tsc --noEmit && echo "→ ESLint" && npx lint-staged

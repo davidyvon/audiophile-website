@@ -1,0 +1,139 @@
+@use "sass:math";
+
+// ------------------------------------------------------------
+//  SPACING
+// ------------------------------------------------------------
+
+@function px2rem($px) {
+	@return math.div($px, 16) * 1rem;
+}
+
+@function getSpacing($size) {
+	@return px2rem($size * 8);
+}
+
+// ------------------------------------------------------------
+// BORDER RADIUS
+// ------------------------------------------------------------
+
+$border-radius: (
+	"s": getSpacing(2),
+	"m": getSpacing(3),
+	"l": getSpacing(5),
+);
+
+@function getRadius($key) {
+	@return map-get($border-radius, $key);
+}
+
+// ------------------------------------------------------------
+// CENTERING
+// ------------------------------------------------------------
+
+@mixin flex-center($direction) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin grid-center() {
+	display: grid;
+	place-items: center;
+}
+
+// ------------------------------------------------------------
+//  CONTAINER
+// ------------------------------------------------------------
+
+$page__max-width: px2rem(1440);
+$page__padding--xs: getSpacing(3);
+$page__padding--md: getSpacing(5);
+$page__padding--lg: getSpacing(20);
+
+// ------------------------------------------------------------
+//  BREAKPOINTS
+// ------------------------------------------------------------
+
+$breakpoint--md: 768;
+$breakpoint--lg: 1280;
+
+@mixin media($size) {
+	@if $size == "md" {
+		@media (min-width: px2rem($breakpoint--md)) {
+			@content;
+		}
+	} @else if $size == "lg" {
+		@media (min-width: px2rem($breakpoint--lg)) {
+			@content;
+		}
+	} @else {
+		@error "$Invalid breakpoint size";
+	}
+}
+
+// ------------------------------------------------------------
+//  GRID
+// ------------------------------------------------------------
+
+$grid__gap--xs: getSpacing(1);
+$grid__gap--md: getSpacing(1);
+$grid__gap--lg: getSpacing(4);
+
+@mixin grid-xs {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 0 $grid__gap--xs;
+	padding: 0 $page__padding--xs;
+	margin: 0 auto;
+}
+
+@mixin grid-md {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 0 $grid__gap--md;
+	padding: 0 $page__padding--md;
+	margin: 0 auto;
+}
+
+@mixin grid-lg {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	gap: 0 $grid__gap--lg;
+	padding: 0 $page__padding--lg;
+	margin: 0 auto;
+	width: 100%;
+	max-width: $page__max-width;
+}
+
+// ------------------------------------------------------------
+//  IMAGE
+// ------------------------------------------------------------
+
+@mixin image-cover {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@mixin image-contain {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+// ------------------------------------------------------------
+// RESETS
+// ------------------------------------------------------------
+
+@mixin reset-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
