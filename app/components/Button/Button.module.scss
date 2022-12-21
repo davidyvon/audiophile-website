@@ -2,11 +2,16 @@
 @use "../../styles/typography" as *;
 
 .button {
+	@include flex-center(row);
 	@include text-label;
-	display: inline-block;
+	gap: getSpacing(1.5);
 	padding: getSpacing(2) getSpacing(4);
 	border: 1px solid transparent;
 	transition: all 0.2s ease;
+}
+
+.icon {
+	transition: all 0.2s ease-out;
 }
 
 .primary {
@@ -35,6 +40,21 @@
 	&:hover {
 		color: var(--color-white);
 		background: var(--color-black);
+	}
+}
+
+.light {
+	padding: getSpacing(1);
+	background: transparent;
+	border: none;
+	color: var(--color-gray-dark);
+
+	&:hover {
+		color: var(--color-orange);
+
+		.icon {
+			transform: translateX(6px);
+		}
 	}
 }
 

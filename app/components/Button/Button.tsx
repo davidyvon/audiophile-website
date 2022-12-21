@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Button.module.scss'
+import Icon from '../../assets/icons/Chevron'
 import { storyblokEditable } from '@storyblok/react'
 import NextLink from 'next/link'
 import classNames from 'classnames'
@@ -10,7 +11,7 @@ type ButtonProps = {
 		_uid: string
 		_editable?: string
 
-		style: 'primary' | 'secondary' | 'outline'
+		style: 'primary' | 'secondary' | 'outline' | 'light'
 		label?: string
 		link?:
 			| ''
@@ -34,23 +35,23 @@ const Button = ({ blok }: ButtonProps): JSX.Element => {
 		styles.button,
 		{ [styles.primary]: style === 'primary' },
 		{ [styles.secondary]: style === 'secondary' },
-		{ [styles.outline]: style === 'outline' }
+		{ [styles.outline]: style === 'outline' },
+		{ [styles.light]: style === 'light' }
 	)
 
 	return (
-		<>
+		<div {...storyblokEditable(blok)}>
 			{label && link && (
-				<div {...storyblokEditable(blok)}>
-					<NextLink
-						href={`${link.linktype === 'story' ? link.story?.url : link.url}`}
-						target={link.target}
-						className={buttonStyle}
-					>
-						{label}
-					</NextLink>
-				</div>
+				<NextLink
+					href={`${link.linktype === 'story' ? link.story?.url : link.url}`}
+					target={link.target}
+					className={buttonStyle}
+				>
+					{label}
+					{style === 'light' && <Icon className={styles.icon} />}
+				</NextLink>
 			)}
-		</>
+		</div>
 	)
 }
 
