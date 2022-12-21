@@ -1,7 +1,42 @@
 @use "../../styles/utils" as *;
 @use "../../styles/typography" as *;
 
-// .container {}
+.button {
+	@include text-label;
+	display: inline-block;
+	padding: getSpacing(2) getSpacing(4);
+	border: 1px solid transparent;
+	transition: all 0.2s ease;
+}
+
+.primary {
+	background: var(--color-orange);
+	color: var(--color-white);
+
+	&:hover {
+		background: var(--color-orange-light);
+	}
+}
+
+.secondary {
+	background: var(--color-black);
+	color: var(--color-white);
+
+	&:hover {
+		background: var(--color-gray-dark);
+	}
+}
+
+.outline {
+	color: var(--color-black);
+	background: transparent;
+	border: 1px solid var(--color-black);
+
+	&:hover {
+		color: var(--color-white);
+		background: var(--color-black);
+	}
+}
 
 // ------------------------------------------------------------
 //  MD

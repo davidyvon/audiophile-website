@@ -41,6 +41,10 @@
 	opacity: 0.75;
 }
 
+.button {
+	margin-top: getSpacing(2);
+}
+
 .image {
 	@include image-cover;
 }

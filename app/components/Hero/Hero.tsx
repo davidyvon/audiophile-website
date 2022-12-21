@@ -1,10 +1,10 @@
 import React from 'react'
-import { storyblokEditable } from '@storyblok/react'
+import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './Hero.module.scss'
 import Image from 'next/image'
 
-type ContentProps = {
+type HeroProps = {
 	blok: {
 		component: string
 		_uid: string
@@ -13,6 +13,7 @@ type ContentProps = {
 		label?: string
 		heading?: string
 		description?: string
+		buttons?: [{ label: string }]
 		image?: {
 			filename: string
 			alt: '' | string
@@ -20,9 +21,8 @@ type ContentProps = {
 	}
 }
 
-const Content = ({ blok }: ContentProps): JSX.Element => {
-	const { label, heading = [], description, image } = blok
-	console.log(heading)
+const Hero = ({ blok }: HeroProps): JSX.Element => {
+	const { label, heading = [], description, buttons = [], image } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
@@ -31,6 +31,13 @@ const Content = ({ blok }: ContentProps): JSX.Element => {
 					{label && <p className={styles.label}>{label}</p>}
 					{heading && <div className={styles.heading}>{render(heading)}</div>}
 					{description && <p className={styles.description}>{description}</p>}
+
+					<div className={styles.button}>
+						{buttons &&
+							buttons.map((button) => (
+								<StoryblokComponent key={button._uid} blok={button} />
+							))}
+					</div>
 				</article>
 			</div>
 
@@ -47,4 +54,4 @@ const Content = ({ blok }: ContentProps): JSX.Element => {
 	)
 }
 
-export default Content
+export default Hero
