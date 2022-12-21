@@ -1,0 +1,86 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section {
+	position: relative;
+	background: var(--color-black);
+	height: 100vh;
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+
+	@include grid-xs;
+	padding-top: getSpacing(4);
+	padding-bottom: getSpacing(4);
+	color: var(--color-white);
+}
+
+.content {
+	@include flex-center(column);
+	gap: getSpacing(3);
+	text-align: center;
+	grid-column: 1 / -1;
+}
+
+.label {
+	@include text-overline;
+	opacity: 0.5;
+}
+
+.heading {
+	& > * {
+		@include text-heading-l;
+	}
+}
+
+.description {
+	@include text-body;
+	opacity: 0.75;
+}
+
+.image {
+	@include image-cover;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.container {
+		@include grid-md;
+		padding-top: getSpacing(4);
+		padding-bottom: getSpacing(4);
+	}
+
+	.content {
+		grid-column: 3 / -3;
+	}
+
+	.heading {
+		& > * {
+			@include text-heading-xxl;
+		}
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.container {
+		@include grid-lg;
+		padding-top: getSpacing(4);
+		padding-bottom: getSpacing(4);
+	}
+
+	.content {
+		grid-column: 1 / 6;
+		align-items: flex-start;
+		text-align: left;
+	}
+}
