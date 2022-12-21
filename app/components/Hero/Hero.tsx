@@ -1,8 +1,8 @@
 import React from 'react'
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './Hero.module.scss'
 import Image from 'next/image'
+import styles from './Hero.module.scss'
 
 type HeroProps = {
 	blok: {
@@ -14,7 +14,15 @@ type HeroProps = {
 		heading?: string
 		description?: string
 		buttons?: [{ label: string }]
-		image?: {
+		imageDesktop?: {
+			filename: string
+			alt: '' | string
+		}
+		imageTablet?: {
+			filename: string
+			alt: '' | string
+		}
+		imageMobile?: {
 			filename: string
 			alt: '' | string
 		}
@@ -22,7 +30,15 @@ type HeroProps = {
 }
 
 const Hero = ({ blok }: HeroProps): JSX.Element => {
-	const { label, heading = [], description, buttons = [], image } = blok
+	const {
+		label,
+		heading = [],
+		description,
+		buttons = [],
+		imageDesktop,
+		imageTablet,
+		imageMobile,
+	} = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
@@ -41,13 +57,33 @@ const Hero = ({ blok }: HeroProps): JSX.Element => {
 				</article>
 			</div>
 
-			{image && image.filename && (
+			{imageDesktop && imageDesktop.filename && (
 				<Image
-					className={styles.image}
-					src={image.filename}
-					alt={image.alt}
-					width={540}
-					height={320}
+					className={styles.imageDesktop}
+					src={imageDesktop.filename}
+					alt={imageDesktop.alt}
+					width={1440}
+					height={729}
+				/>
+			)}
+
+			{imageTablet && imageTablet.filename && (
+				<Image
+					className={styles.imageTablet}
+					src={imageTablet.filename}
+					alt={imageTablet.alt}
+					width={1536}
+					height={1458}
+				/>
+			)}
+
+			{imageMobile && imageMobile.filename && (
+				<Image
+					className={styles.imageMobile}
+					src={imageMobile.filename}
+					alt={imageMobile.alt}
+					width={750}
+					height={1200}
 				/>
 			)}
 		</section>
