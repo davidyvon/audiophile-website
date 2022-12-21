@@ -1,0 +1,86 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.article {
+	width: 100%;
+}
+
+.container {
+	position: relative;
+
+	@include flex-center(column);
+	padding-bottom: getSpacing(2);
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: 100%;
+		height: 72%;
+		left: 0;
+		bottom: 0;
+		background: var(--color-gray);
+		border-radius: getRadius("s");
+	}
+}
+
+.picture {
+	position: relative;
+	width: 80px;
+	height: 80px;
+	margin-bottom: getSpacing(4);
+
+	&::before {
+		content: "";
+		position: absolute;
+		z-index: -1;
+		width: 80%;
+		height: 16px;
+		left: 50%;
+		bottom: - 8px;
+		transform: translateX(-50%);
+		border-radius: 50%;
+		background: var(--color-black);
+		filter: blur(14px);
+	}
+}
+
+.image {
+	@include image-contain;
+}
+
+.content {
+	@include flex-center(column);
+	gap: getSpacing(1);
+}
+
+.label {
+	@include text-heading-xxs;
+	color: var(--color-black);
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.picture {
+		width: 120px;
+		height: 120px;
+	}
+
+	.label {
+		@include text-heading-xs;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.picture {
+		width: 160px;
+		height: 160px;
+	}
+}
