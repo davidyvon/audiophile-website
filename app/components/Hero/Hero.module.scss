@@ -1,0 +1,115 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section {
+	position: relative;
+	background: var(--color-black);
+	height: 100vh;
+}
+
+.container {
+	position: relative;
+	z-index: 1;
+	height: 100%;
+
+	@include grid-xs;
+	padding-top: getSpacing(1);
+	padding-bottom: getSpacing(1);
+	color: var(--color-white);
+}
+
+.content {
+	@include flex-center(column);
+	gap: getSpacing(3);
+	text-align: center;
+	grid-column: 1 / -1;
+}
+
+.label {
+	@include text-overline;
+	opacity: 0.5;
+}
+
+.heading {
+	& > * {
+		@include text-heading-l;
+	}
+}
+
+.description {
+	@include text-body;
+	opacity: 0.75;
+}
+
+.button {
+	margin-top: getSpacing(2);
+}
+
+.imageDesktop,
+.imageTablet,
+.imageMobile {
+	@include image-cover;
+}
+
+.imageDesktop,
+.imageTablet {
+	display: none;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.container {
+		@include grid-md;
+		padding-top: getSpacing(1);
+		padding-bottom: getSpacing(1);
+	}
+
+	.content {
+		grid-column: 3 / -3;
+	}
+
+	.heading {
+		& > * {
+			@include text-heading-xxl;
+		}
+	}
+
+	.imageTablet {
+		display: block;
+	}
+
+	.imageDesktop,
+	.imageMobile {
+		display: none;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.container {
+		@include grid-lg;
+		padding-top: getSpacing(1);
+		padding-bottom: getSpacing(1);
+	}
+
+	.content {
+		grid-column: 1 / 6;
+		align-items: flex-start;
+		text-align: left;
+	}
+
+	.imageDesktop {
+		display: block;
+	}
+
+	.imageTablet,
+	.imageMobile {
+		display: none;
+	}
+}
