@@ -9,6 +9,7 @@
 		"function-name-case": null,
 		"scss/dollar-variable-pattern": null,
 		"scss/at-mixin-pattern": null,
-		"scss/at-function-pattern": null
+		"scss/at-function-pattern": null,
+		"selector-class-pattern": null
 	}
 }
