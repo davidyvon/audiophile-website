@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import '../app/styles/globals.scss'
 
 import { storyblokInit, apiPlugin } from '@storyblok/react'
+import About from '../app/components/About/About'
 import Button from '../app/components/Button/Button'
 import CardSmall from '../app/components/CardSmall/CardSmall'
 import CardSmallItem from '../app/components/CardSmall/CardSmallItem/CardSmallItem'
@@ -16,6 +17,7 @@ import Link from '../app/components/Link/Link'
 import Page from '../app/components/Page/Page'
 
 const components = {
+	about: About,
 	button: Button,
 	cardSmall: CardSmall,
 	cardSmallItem: CardSmallItem,
