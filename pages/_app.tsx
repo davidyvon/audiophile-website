@@ -17,6 +17,7 @@ import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
 import Page from '../app/components/Page/Page'
 import Preview from '../app/components/Preview/Preview'
+import Product from '../app/components/Product/Product'
 
 const components = {
 	about: About,
@@ -33,6 +34,7 @@ const components = {
 	link: Link,
 	page: Page,
 	preview: Preview,
+	product: Product,
 }
 
 storyblokInit({
