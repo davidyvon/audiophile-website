@@ -1,0 +1,143 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section,
+.container {
+	@include grid-xs;
+}
+
+.section {
+	padding-top: getSpacing(8);
+	padding-bottom: getSpacing(8);
+}
+
+.container,
+.picture,
+.content {
+	grid-column: 1 / -1;
+}
+
+.container {
+	padding: 0;
+	width: 100%;
+}
+
+.picture,
+.image {
+	border-radius: getRadius("s");
+}
+
+.picture {
+	position: relative;
+	min-height: 352px;
+	margin-bottom: getSpacing(4);
+	background: var(--color-gray);
+}
+
+.image {
+	@include image-contain;
+}
+
+.content {
+	@include flex-center(column);
+	gap: getSpacing(3);
+	text-align: center;
+	color: var(--colo-black);
+}
+
+.label {
+	@include text-overline;
+	color: var(--color-orange);
+}
+
+.heading {
+	& > * {
+		@include text-heading-m;
+	}
+}
+
+.description {
+	@include text-body;
+	margin-bottom: getSpacing(1);
+	opacity: 0.5;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section,
+	.container {
+		@include grid-md;
+	}
+
+	.section {
+		padding-top: getSpacing(10);
+		padding-bottom: getSpacing(10);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.picture {
+		margin-bottom: getSpacing(6);
+	}
+
+	.content {
+		grid-column: 3 / -3;
+		gap: getSpacing(4);
+	}
+
+	.heading {
+		& > * {
+			@include text-heading-xl;
+		}
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section,
+	.container {
+		@include grid-lg;
+	}
+
+	.section {
+		padding-top: getSpacing(10);
+		padding-bottom: getSpacing(10);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.picture,
+	.content {
+		grid-row: 1;
+	}
+
+	.picture {
+		grid-column: 1 / 7;
+		margin-bottom: 0;
+		min-height: 560px;
+
+		&.imageRight {
+			grid-column: 7 / -1;
+		}
+	}
+
+	.content {
+		grid-column: 8 / -1;
+		text-align: left;
+		align-items: flex-start;
+
+		&.imageRight {
+			grid-column: 1 / 6;
+		}
+	}
+}
