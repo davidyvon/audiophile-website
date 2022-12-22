@@ -8,7 +8,7 @@
 
 .section {
 	padding-top: getSpacing(8);
-	padding-bottom: getSpacing(8);
+	padding-bottom: getSpacing(12);
 }
 
 .container,
@@ -78,8 +78,8 @@
 	}
 
 	.section {
-		padding-top: getSpacing(10);
-		padding-bottom: getSpacing(10);
+		padding-top: getSpacing(8);
+		padding-bottom: getSpacing(12);
 	}
 
 	.container {
@@ -120,7 +120,7 @@
 
 	.section {
 		padding-top: getSpacing(10);
-		padding-bottom: getSpacing(10);
+		padding-bottom: getSpacing(20);
 	}
 
 	.container {
