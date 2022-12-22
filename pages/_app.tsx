@@ -7,6 +7,7 @@ import Button from '../app/components/Button/Button'
 import CardSmall from '../app/components/CardSmall/CardSmall'
 import CardSmallItem from '../app/components/CardSmall/CardSmallItem/CardSmallItem'
 import Content from '../app/components/Content/Content'
+import CtaLarge from '../app/components/CtaLarge/CtaLarge'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
@@ -17,6 +18,7 @@ const components = {
 	cardSmall: CardSmall,
 	cardSmallItem: CardSmallItem,
 	content: Content,
+	ctaLarge: CtaLarge,
 	heading: Heading,
 	hero: Hero,
 	link: Link,

@@ -1,0 +1,144 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section,
+.container {
+	@include grid-xs;
+}
+
+.section {
+	padding-top: getSpacing(8);
+	padding-bottom: getSpacing(3);
+}
+
+.container {
+	grid-column: 1 / -1;
+	position: relative;
+	overflow: hidden;
+	padding: getSpacing(6) getSpacing(3);
+	border-radius: getRadius("s");
+	color: var(--color-white);
+	background: var(--color-orange);
+}
+
+.circles {
+	position: absolute;
+	top: -40%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.picture,
+.content {
+	grid-column: 1 / -1;
+	position: relative;
+	z-index: 1;
+}
+
+.picture {
+	margin: 0 auto getSpacing(4) auto;
+	max-width: 180px;
+}
+
+.image {
+	width: 100%;
+	height: auto;
+}
+
+.content {
+	@include flex-center(column);
+	text-align: center;
+}
+
+.heading {
+	margin-bottom: getSpacing(3);
+
+	& > * {
+		@include text-heading-l;
+	}
+}
+
+.description {
+	margin-bottom: getSpacing(5);
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section,
+	.container {
+		@include grid-md;
+	}
+
+	.section {
+		padding-top: getSpacing(8);
+		padding-bottom: getSpacing(4);
+	}
+
+	.container {
+		padding: getSpacing(6) 0;
+	}
+
+	.content,
+	.picture {
+		grid-column: 4 / -4;
+	}
+
+	.picture {
+		max-width: 200px;
+		margin: 0 auto getSpacing(8) auto;
+	}
+
+	.heading {
+		& > * {
+			@include text-heading-xxl;
+		}
+	}
+
+	.description {
+		@include text-body;
+		opacity: 0.75;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section,
+	.container {
+		@include grid-lg;
+	}
+
+	.section {
+		padding-top: getSpacing(8);
+		padding-bottom: getSpacing(6);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.circles {
+		top: -5%;
+		left: 26.5%;
+	}
+
+	.picture {
+		grid-column: 2 / 7;
+		align-self: end;
+		max-width: 400px;
+		margin: 0;
+		transform: translateY(2.5%);
+	}
+
+	.content {
+		grid-column: 8 / -2;
+		align-items: flex-start;
+		text-align: left;
+		margin: getSpacing(18) 0;
+	}
+}
