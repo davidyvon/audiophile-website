@@ -11,6 +11,7 @@ import Content from '../app/components/Content/Content'
 import CtaLarge from '../app/components/CtaLarge/CtaLarge'
 import CtaSmall from '../app/components/CtaSmall/CtaSmall'
 import CtaSplit from '../app/components/CtaSplit/CtaSplit'
+import Gallery from '../app/components/Gallery/Gallery'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
@@ -25,6 +26,7 @@ const components = {
 	ctaLarge: CtaLarge,
 	ctaSmall: CtaSmall,
 	ctaSplit: CtaSplit,
+	gallery: Gallery,
 	heading: Heading,
 	hero: Hero,
 	link: Link,

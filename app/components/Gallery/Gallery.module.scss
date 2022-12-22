@@ -1,0 +1,107 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section,
+.container {
+	@include grid-xs;
+}
+
+.section {
+	padding-top: getSpacing(12);
+	padding-bottom: getSpacing(12);
+}
+
+.container,
+.topLeft,
+.bottomLeft,
+.right {
+	position: relative;
+	grid-column: 1 / -1;
+}
+
+.container {
+	padding: 0;
+	width: 100%;
+	gap: getSpacing(3);
+}
+
+.topLeft,
+.bottomLeft {
+	min-height: 180px;
+}
+
+.right {
+	min-height: 368px;
+}
+
+.image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: getRadius("s");
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section,
+	.container {
+		@include grid-md;
+	}
+
+	.section {
+		padding-top: getSpacing(15);
+		padding-bottom: getSpacing(15);
+	}
+
+	.container {
+		padding: 0;
+		gap: getSpacing(2);
+	}
+
+	.topLeft {
+		grid-column: 1 / 6;
+	}
+
+	.bottomLeft {
+		grid-column: 1 / 6;
+	}
+
+	.right {
+		grid-column: 6 / -1;
+		grid-row: 1 / 3;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section,
+	.container {
+		@include grid-lg;
+	}
+
+	.section {
+		@include grid-lg;
+		padding-top: getSpacing(20);
+		padding-bottom: getSpacing(20);
+	}
+
+	.container {
+		padding: 0;
+		gap: getSpacing(4);
+	}
+
+	.topLeft,
+	.bottomLeft {
+		min-height: 280px;
+	}
+
+	.right {
+		min-height: 592px;
+	}
+}
