@@ -76,8 +76,8 @@ $breakpoint--lg: 1280;
 //  GRID
 // ------------------------------------------------------------
 
-$grid__gap--xs: getSpacing(1);
-$grid__gap--md: getSpacing(1);
+$grid__gap--xs: getSpacing(2);
+$grid__gap--md: getSpacing(2);
 $grid__gap--lg: getSpacing(4);
 
 @mixin grid-xs {
