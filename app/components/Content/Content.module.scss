@@ -1,16 +1,32 @@
-@use "../../styles/utils" as *;
-@use "../../styles/typography" as *;
+// @use "../../styles/utils" as *;
+// @use "../../styles/typography" as *;
 
-// .container {}
+// .container {
+// 	@include grid-xs;
+// 	padding-top: getSpacing(2);
+// 	padding-bottom: getSpacing(2);
+// }
 
-// ------------------------------------------------------------
-//  MD
-// ------------------------------------------------------------
+// // ------------------------------------------------------------
+// //  MD
+// // ------------------------------------------------------------
 
-// @include media("md") {}
+// @include media("md") {
+// 	.container {
+// 		@include grid-md;
+// 		padding-top: getSpacing(2);
+// 		padding-bottom: getSpacing(2);
+// 	}
+// }
 
-// ------------------------------------------------------------
-//  LG
-// ------------------------------------------------------------
+// // ------------------------------------------------------------
+// //  LG
+// // ------------------------------------------------------------
 
-// @include media("lg") {}
+// @include media("lg") {
+// 	.container {
+// 		@include grid-lg;
+// 		padding-top: getSpacing(2);
+// 		padding-bottom: getSpacing(2);
+// 	}
+// }
