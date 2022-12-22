@@ -1,0 +1,137 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section,
+.container {
+	@include grid-xs;
+}
+
+.section {
+	padding-top: 0;
+	padding-bottom: getSpacing(3);
+}
+
+.container,
+.images,
+.content {
+	grid-column: 1 / -1;
+	width: 100%;
+}
+
+.container {
+	padding: 0;
+}
+
+.images,
+.content {
+	border-radius: getRadius("s");
+	min-height: 200px;
+}
+
+.images {
+	position: relative;
+	margin-bottom: getSpacing(3);
+}
+
+.content {
+	@include flex-center(column);
+	align-items: flex-start;
+	gap: getSpacing(4);
+	padding: getSpacing(5) getSpacing(3);
+	background: var(--color-gray);
+}
+
+.heading {
+	& > * {
+		@include text-heading-m;
+		color: var(--color-black);
+	}
+}
+
+.imageDesktop,
+.imageTablet,
+.imageMobile {
+	@include image-cover;
+	border-radius: getRadius("s");
+}
+
+.imageDesktop,
+.imageTablet {
+	display: none;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section,
+	.container {
+		@include grid-md;
+	}
+
+	.section {
+		padding-top: 0;
+		padding-bottom: getSpacing(4);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.images,
+	.content {
+		height: 100%;
+	}
+
+	.images {
+		grid-column: 1 / 7;
+	}
+
+	.content {
+		grid-column: 7 / -1;
+		padding: getSpacing(12) getSpacing(5);
+	}
+
+	.imageTablet {
+		display: block;
+	}
+
+	.imageDesktop,
+	.imageMobile {
+		display: none;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section,
+	.container {
+		@include grid-lg;
+	}
+
+	.section {
+		padding-top: 0;
+		padding-bottom: getSpacing(6);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.content {
+		padding: getSpacing(12) getSpacing(5) getSpacing(12) getSpacing(12);
+	}
+
+	.imageDesktop {
+		display: block;
+	}
+
+	.imageTablet,
+	.imageMobile {
+		display: none;
+	}
+}
