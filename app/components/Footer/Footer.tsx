@@ -34,8 +34,8 @@ const Footer = ({ blok }: FooterProps): JSX.Element => {
 								className={styles.image}
 								src={logo.filename}
 								alt={logo.alt}
-								width={540}
-								height={320}
+								width={143}
+								height={25}
 							/>
 						</NextLink>
 					)}
