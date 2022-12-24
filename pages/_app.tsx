@@ -19,6 +19,7 @@ import Footer from '../app/components/Footer/Footer'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
+import Navigation from '../app/components/Navigation/Navigation'
 import Page from '../app/components/Page/Page'
 import Preview from '../app/components/Preview/Preview'
 import Product from '../app/components/Product/Product'
@@ -40,6 +41,7 @@ const components = {
 	heading: Heading,
 	hero: Hero,
 	link: Link,
+	navigation: Navigation,
 	page: Page,
 	preview: Preview,
 	product: Product,
