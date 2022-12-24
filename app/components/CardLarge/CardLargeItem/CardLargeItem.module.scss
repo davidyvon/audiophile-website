@@ -1,0 +1,48 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.article {
+	width: 100%;
+}
+
+.picture,
+.image {
+	border-radius: getRadius("s");
+}
+
+.picture {
+	position: relative;
+	margin-bottom: getSpacing(5);
+	background: var(--color-gray);
+	min-height: 120px;
+}
+
+.image {
+	@include image-contain;
+}
+
+.content {
+	@include flex-center(column);
+	gap: getSpacing(4);
+}
+
+.label {
+	@include text-heading-s;
+	color: var(--color-black);
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.picture {
+		min-height: 318px;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+// @include media("lg") {}

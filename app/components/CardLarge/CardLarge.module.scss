@@ -1,0 +1,49 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.container {
+	@include grid-xs;
+	padding-top: getSpacing(6);
+	padding-bottom: getSpacing(6);
+}
+
+.cards {
+	@include flex-center(column);
+	flex-wrap: nowrap;
+	gap: getSpacing(6);
+	grid-column: 1 / -1;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.container {
+		@include grid-md;
+		padding-top: getSpacing(12);
+		padding-bottom: getSpacing(12);
+		justify-content: space-between;
+	}
+
+	.cards {
+		flex-direction: row;
+		gap: getSpacing(2);
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.container {
+		@include grid-lg;
+		padding-top: getSpacing(15);
+		padding-bottom: getSpacing(15);
+	}
+
+	.cards {
+		gap: getSpacing(4);
+	}
+}
