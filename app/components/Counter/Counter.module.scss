@@ -1,0 +1,57 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.counter {
+	@include text-label;
+	@include flex-center(row);
+	flex-wrap: nowrap;
+	min-width: 96px;
+	min-height: 32px;
+	line-height: 0;
+	text-align: center;
+	color: var(--color-black);
+	background: var(--color-gray);
+
+	&.large {
+		width: 120px;
+		height: 48px;
+		padding: 0 12px;
+	}
+
+	&.small {
+		width: 96px;
+		height: 32px;
+		padding: 0 8px;
+	}
+}
+
+.minus,
+.plus {
+	width: 24px;
+	height: 24px;
+	border: none;
+	opacity: 0.25;
+	background: transparent;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 1;
+		color: var(--color-orange);
+	}
+}
+
+.count {
+	margin: 0 auto;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+// @include media("md") {}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+// @include media("lg") {}

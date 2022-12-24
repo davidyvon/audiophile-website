@@ -2,6 +2,7 @@ import React from 'react'
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
+import Counter from '../Counter/Counter'
 import styles from './Product.module.scss'
 
 type ProductProps = {
@@ -45,10 +46,19 @@ const Product = ({ blok }: ProductProps): JSX.Element => {
 					{heading && <div className={styles.heading}>{render(heading)}</div>}
 					{description && <p className={styles.description}>{description}</p>}
 					{price && <p className={styles.price}>{`$ ${price}`}</p>}
-					{buttons &&
-						buttons.map((button) => (
-							<StoryblokComponent key={button._uid} blok={button} />
-						))}
+					<div className={styles.buttons}>
+						<Counter
+							blok={{
+								component: 'counter',
+								_uid: '',
+								size: 'large',
+							}}
+						/>
+						{buttons &&
+							buttons.map((button) => (
+								<StoryblokComponent key={button._uid} blok={button} />
+							))}
+					</div>
 				</article>
 			</div>
 		</section>

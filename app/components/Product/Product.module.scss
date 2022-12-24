@@ -67,6 +67,12 @@
 	margin-bottom: getSpacing(1);
 }
 
+.buttons {
+	@include flex-center(row);
+	flex-wrap: wrap;
+	gap: getSpacing(2);
+}
+
 // ------------------------------------------------------------
 //  MD
 // ------------------------------------------------------------
