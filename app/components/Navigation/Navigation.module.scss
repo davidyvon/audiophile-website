@@ -1,0 +1,140 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.header {
+	background: var(--color-black);
+}
+
+.navigation {
+	@include grid-xs;
+	padding: 0;
+}
+
+.container {
+	@include flex-center(row);
+	grid-column: 1 / -1;
+	padding: getSpacing(4) $page__padding--xs;
+}
+
+.menu {
+	margin-right: getSpacing(2);
+}
+
+.logo {
+	position: relative;
+	margin: 0 auto;
+	min-width: 143px;
+	min-height: 25px;
+}
+
+.logoImage {
+	position: absolute;
+	width: auto;
+	height: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.desktopLinks {
+	@include flex-center(row);
+	gap: getSpacing(4);
+	color: var(--color-white);
+	display: none;
+}
+
+.desktopLink {
+	@include text-label;
+	transition: all 0.2s ease;
+
+	&:hover {
+		color: var(--color-orange);
+	}
+}
+
+.cart {
+	padding: 0;
+	min-width: 24px;
+	min-height: 24px;
+	width: 24px;
+	height: 24px;
+	border: none;
+	margin-left: getSpacing(2);
+	background: transparent;
+	transition: all 0.2s ease;
+	cursor: pointer;
+
+	&:hover {
+		filter: saturate(100%) invert(51%) sepia(70%) saturate(394%) hue-rotate(338deg) brightness(94%) contrast(95%);
+	}
+}
+
+.mobileLinks {
+	position: relative;
+	z-index: 1;
+	grid-column: 1 / -1;
+	border-radius: 0 0 getRadius("s") getRadius("s");
+	background-color: var(--color-white);
+	display: none;
+
+	&.openMenu {
+		display: block;
+	}
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.navigation {
+		@include grid-md;
+		padding: 0;
+	}
+
+	.container {
+		padding: getSpacing(4) $page__padding--md;
+	}
+
+	.menu {
+		margin-right: getSpacing(4);
+	}
+
+	.logo {
+		margin: 0 auto 0 0;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.navigation {
+		@include grid-lg;
+		padding: 0;
+	}
+
+	.container {
+		padding: getSpacing(4) $page__padding--lg;
+	}
+
+	.menu {
+		display: none;
+	}
+
+	.desktopLinks {
+		display: flex;
+	}
+
+	.mobileLinks {
+		display: none;
+
+		&.openMenu {
+			display: none;
+		}
+	}
+
+	.cart {
+		margin-left: auto;
+	}
+}
