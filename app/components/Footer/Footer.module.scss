@@ -1,0 +1,170 @@
+/* stylelint-disable max-line-length */
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.footer {
+	background: var(--color-black-light);
+}
+
+.container {
+	@include grid-xs;
+	position: relative;
+	text-align: center;
+	padding-top: getSpacing(6);
+	padding-bottom: getSpacing(6);
+	color: var(--color-white);
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100px;
+		height: 4px;
+		background: var(--color-orange);
+	}
+}
+
+.logo,
+.links,
+.description,
+.copyright,
+.socials {
+	grid-column: 1 / -1;
+}
+
+.logo,
+.links,
+.description,
+.copyright {
+	margin-bottom: getSpacing(6);
+}
+
+.logo {
+	position: relative;
+	min-width: 143px;
+	min-height: 25px;
+}
+
+.image {
+	position: absolute;
+	width: auto;
+	height: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.links {
+	@include flex-center(column);
+	gap: getSpacing(2);
+}
+
+.link {
+	@include text-label;
+	transition: all 0.2s ease;
+
+	&:hover {
+		color: var(--color-orange);
+	}
+}
+
+.description,
+.copyright {
+	@include text-body;
+	opacity: 0.5;
+}
+
+.socials {
+	@include flex-center(row);
+	gap: getSpacing(2);
+}
+
+.social {
+	width: 24px;
+	height: 24px;
+	transition: all 0.2s ease;
+
+	&:hover {
+		filter: saturate(100%) invert(51%) sepia(70%) saturate(394%) hue-rotate(338deg) brightness(94%) contrast(95%);
+	}
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.container {
+		@include grid-md;
+		justify-items: start;
+		text-align: left;
+		padding-top: getSpacing(8);
+		padding-bottom: getSpacing(6);
+
+		&::before {
+			left: 40px;
+			transform: translateX(0);
+		}
+	}
+
+	.logo,
+	.links {
+		margin-bottom: getSpacing(4);
+	}
+
+	.image {
+		left: 0;
+		transform: translateX(0);
+	}
+
+	.links {
+		flex-direction: row;
+		justify-content: flex-start;
+		gap: getSpacing(4);
+	}
+
+	.description {
+		margin-bottom: getSpacing(10);
+	}
+
+	.copyright {
+		grid-column: 1 / 7;
+		margin-bottom: 0;
+	}
+
+	.socials {
+		grid-column: 7 / -1;
+		justify-self: end;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.container {
+		@include grid-lg;
+		padding-top: getSpacing(10);
+		padding-bottom: getSpacing(6);
+
+		&::before {
+			left: 160px;
+		}
+	}
+
+	.logo {
+		grid-column: 1 / 4;
+	}
+
+	.links {
+		grid-column: 5 / -1;
+		justify-self: end;
+	}
+
+	.description,
+	.copyright {
+		grid-column: 1 / 7;
+	}
+}
