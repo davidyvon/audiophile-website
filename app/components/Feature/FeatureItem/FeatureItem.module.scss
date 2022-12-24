@@ -1,0 +1,39 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.item {
+	@include flex-center(row);
+	justify-content: flex-start;
+	gap: getSpacing(3);
+
+	&:not(:last-child) {
+		margin-bottom: getSpacing(1);
+	}
+}
+
+.quantity,
+.description {
+	@include text-body;
+}
+
+.quantity {
+	color: var(--color-orange);
+	font-weight: 700;
+}
+
+.description {
+	color: var(--color-black);
+	opacity: 0.5;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+// @include media("md") {}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+// @include media("lg") {}

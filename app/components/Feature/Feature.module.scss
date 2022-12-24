@@ -1,0 +1,134 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.article,
+.container {
+	@include grid-xs;
+}
+
+.container,
+.feature,
+.list {
+	grid-column: 1 / -1;
+}
+
+.article {
+	padding-top: 0;
+	padding-bottom: getSpacing(11);
+	color: var(--color-black);
+}
+
+.container {
+	padding: 0;
+}
+
+.feature {
+	margin-bottom: getSpacing(11);
+}
+
+.featureHeading,
+.listHeading {
+	@include text-heading-s;
+	margin-bottom: getSpacing(3);
+}
+
+.description {
+	& > * {
+		@include text-body;
+		opacity: 0.5;
+	}
+}
+
+.items {
+	padding: 0;
+	margin: 0;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.article,
+	.container {
+		@include grid-md;
+	}
+
+	.article {
+		padding-top: 0;
+		padding-bottom: getSpacing(11);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.featureHeading,
+	.listHeading {
+		@include text-heading-m;
+	}
+
+	.featureHeading {
+		margin-bottom: getSpacing(4);
+	}
+
+	.list {
+		@include flex-center(row);
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+
+	.listHeading,
+	.items {
+		flex: 1;
+	}
+
+	.listHeading {
+		margin-bottom: 0;
+	}
+
+	.items {
+		list-style: none;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.article,
+	.container {
+		@include grid-lg;
+	}
+
+	.article {
+		padding-top: 0;
+		padding-bottom: getSpacing(20);
+	}
+
+	.container {
+		padding: 0;
+	}
+
+	.feature {
+		grid-column: 1 / 8;
+		margin-bottom: 0;
+	}
+
+	.listHeading,
+	.items {
+		flex: none;
+	}
+
+	.listHeading {
+		margin-bottom: getSpacing(4);
+	}
+
+	.list {
+		grid-column: 9 / -1;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: flex-start;
+	}
+}
