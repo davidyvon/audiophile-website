@@ -16,6 +16,7 @@ import Gallery from '../app/components/Gallery/Gallery'
 import Feature from '../app/components/Feature/Feature'
 import FeatureItem from '../app/components/Feature/FeatureItem/FeatureItem'
 import Footer from '../app/components/Footer/Footer'
+import FormField from '../app/components/Form/FormField/FormField'
 import FormInput from '../app/components/Form/FormInput/FormInput'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
@@ -38,6 +39,7 @@ const components = {
 	feature: Feature,
 	featureItem: FeatureItem,
 	footer: Footer,
+	formField: FormField,
 	formInput: FormInput,
 	gallery: Gallery,
 	heading: Heading,

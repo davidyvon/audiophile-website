@@ -1,0 +1,54 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.section {
+	background: var(--color-white);
+}
+
+.heading {
+	margin-bottom: getSpacing(2);
+	color: var(--color-orange);
+
+	& > * {
+		@include text-label;
+	}
+}
+
+.inputs {
+	@include flex-center(column);
+	gap: getSpacing(3);
+}
+
+.input {
+	width: 100%;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.inputs {
+		flex-flow: row wrap;
+		justify-content: flex-start;
+		gap: getSpacing(3) getSpacing(2);
+	}
+
+	.input {
+		width: calc(50% - getSpacing(2) / 2);
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.inputs {
+		gap: getSpacing(3) getSpacing(4);
+	}
+
+	.input {
+		width: calc(50% - getSpacing(4) / 2);
+	}
+}
