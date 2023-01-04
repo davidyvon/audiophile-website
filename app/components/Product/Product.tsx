@@ -21,9 +21,18 @@ type ProductProps = {
 		price?: string
 		buttons?: [{ label: string }]
 	}
+
+	quantity?: number
+	onIncrease: () => void
+	onDecrease: () => void
 }
 
-const Product = ({ blok }: ProductProps): JSX.Element => {
+const Product = ({
+	blok,
+	quantity = 0,
+	onIncrease,
+	onDecrease,
+}: ProductProps): JSX.Element => {
 	const { image, label, heading, description, price, buttons = [] } = blok
 
 	return (
@@ -53,6 +62,9 @@ const Product = ({ blok }: ProductProps): JSX.Element => {
 								_uid: '',
 								size: 'large',
 							}}
+							quantity={quantity}
+							onIncrease={onIncrease}
+							onDecrease={onDecrease}
 						/>
 						{buttons &&
 							buttons.map((button) => (
