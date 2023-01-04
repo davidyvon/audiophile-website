@@ -18,6 +18,7 @@ import FeatureItem from '../app/components/Feature/FeatureItem/FeatureItem'
 import Footer from '../app/components/Footer/Footer'
 import FormField from '../app/components/Form/FormField/FormField'
 import FormInput from '../app/components/Form/FormInput/FormInput'
+import FormRadio from '../app/components/Form/FormRadio/FormRadio'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
@@ -41,6 +42,7 @@ const components = {
 	footer: Footer,
 	formField: FormField,
 	formInput: FormInput,
+	formRadio: FormRadio,
 	gallery: Gallery,
 	heading: Heading,
 	hero: Hero,
