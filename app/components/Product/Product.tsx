@@ -1,9 +1,6 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
-import { render } from 'storyblok-rich-text-react-renderer-ts'
+import { storyblokEditable } from '@storyblok/react'
 import Image from 'next/image'
-import Counter from '../Counter/Counter'
-import styles from './Product.module.scss'
 
 type ProductProps = {
 	blok: {
@@ -11,69 +8,96 @@ type ProductProps = {
 		_uid: string
 		_editable?: string
 
-		image?: {
+		category?: 'headphone' | 'earphone' | 'speaker'
+		name?: string
+		description?: string
+		features?: string
+		price?: number
+		quantity?: number
+		newProduct?: boolean
+		productImage?: {
 			filename: string
 			alt: '' | string
 		}
-		label?: string
-		heading?: string
-		description?: string
-		price?: string
-		buttons?: [{ label: string }]
+		thumbnailImage?: {
+			filename: string
+			alt: '' | string
+		}
+		cartImage?: {
+			filename: string
+			alt: '' | string
+		}
 	}
-
-	quantity?: number
-	onIncrease: () => void
-	onDecrease: () => void
 }
 
-const Product = ({
-	blok,
-	quantity = 0,
-	onIncrease,
-	onDecrease,
-}: ProductProps): JSX.Element => {
-	const { image, label, heading, description, price, buttons = [] } = blok
+const Product = ({ blok }: ProductProps): JSX.Element => {
+	const {
+		category,
+		name,
+		description,
+		features,
+		price,
+		quantity,
+		newProduct,
+		productImage,
+		thumbnailImage,
+		cartImage,
+	} = blok
 
 	return (
-		<section className={styles.section} {...storyblokEditable(blok)}>
-			<div className={styles.container}>
-				<div className={styles.picture}>
-					{image && image.filename && (
-						<Image
-							className={styles.image}
-							src={image.filename}
-							alt={image.alt}
-							width={1080}
-							height={1120}
-						/>
-					)}
-				</div>
+		<div {...storyblokEditable(blok)}>
+			<p>Category: {category}</p>
+			<br />
+			<p>Name: {name}</p>
+			<br />
+			<p>Description: {description}</p>
+			<br />
+			<p>Features: {features}</p>
+			<br />
+			<p>Price: {price}</p>
+			<br />
+			<p>Quantity: {quantity}</p>
+			<br />
+			<p>New Product: {newProduct ? 'yes' : 'no'}</p>
+			<br />
 
-				<article className={styles.content}>
-					{label && <p className={styles.label}>{label}</p>}
-					{heading && <div className={styles.heading}>{render(heading)}</div>}
-					{description && <p className={styles.description}>{description}</p>}
-					{price && <p className={styles.price}>{`$ ${price}`}</p>}
-					<div className={styles.buttons}>
-						<Counter
-							blok={{
-								component: 'counter',
-								_uid: '',
-								size: 'large',
-							}}
-							quantity={quantity}
-							onIncrease={onIncrease}
-							onDecrease={onDecrease}
-						/>
-						{buttons &&
-							buttons.map((button) => (
-								<StoryblokComponent key={button._uid} blok={button} />
-							))}
-					</div>
-				</article>
+			<div>
+				<div>Product Image:</div>
+				{productImage && productImage.filename && (
+					<Image
+						src={productImage.filename}
+						alt={productImage.alt}
+						width={1440}
+						height={729}
+					/>
+				)}
 			</div>
-		</section>
+			<br />
+			<div>
+				<div>Thumbnail Image:</div>
+				{thumbnailImage && thumbnailImage.filename && (
+					<Image
+						src={thumbnailImage.filename}
+						alt={thumbnailImage.alt}
+						width={1440}
+						height={729}
+					/>
+				)}
+			</div>
+			<br />
+
+			<div>
+				<div>Cart Image:</div>
+				{cartImage && cartImage.filename && (
+					<Image
+						src={cartImage.filename}
+						alt={cartImage.alt}
+						width={1440}
+						height={729}
+					/>
+				)}
+			</div>
+		</div>
 	)
 }
 
