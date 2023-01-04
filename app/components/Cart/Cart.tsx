@@ -39,7 +39,7 @@ const Cart = ({ blok }: CartProps): JSX.Element => {
 						{clear && <button className={styles.clear}>{clear}</button>}
 					</div>
 
-					<div className={styles.cart}>
+					<div className={styles.items}>
 						{cartItems &&
 							cartItems.map((cartItem) => (
 								<StoryblokComponent key={cartItem._uid} blok={cartItem} />

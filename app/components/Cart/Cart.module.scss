@@ -9,8 +9,10 @@
 }
 
 .container,
-.cart {
+.cart,
+.items {
 	@include flex-center(column);
+	width: 100%;
 }
 
 .container {
@@ -20,6 +22,10 @@
 	color: var(--color-black);
 	border-radius: getRadius("s");
 	background: var(--color-white);
+}
+
+.cart {
+	gap: getSpacing(3);
 }
 
 .header,
@@ -64,9 +70,8 @@
 	}
 }
 
-.cart {
+.items {
 	gap: getSpacing(3);
-	width: 100%;
 }
 
 .label {
