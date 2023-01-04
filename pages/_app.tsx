@@ -26,6 +26,7 @@ import FormRadio from '../app/components/Form/FormRadio/FormRadio'
 import Heading from '../app/components/Heading/Heading'
 import Hero from '../app/components/Hero/Hero'
 import Link from '../app/components/Link/Link'
+import Modal from '../app/components/Modal/Modal'
 import ModalItem from '../app/components/Modal/ModalItem/ModalItem'
 import Navigation from '../app/components/Navigation/Navigation'
 import Page from '../app/components/Page/Page'
@@ -58,6 +59,7 @@ const components = {
 	heading: Heading,
 	hero: Hero,
 	link: Link,
+	modal: Modal,
 	modalItem: ModalItem,
 	navigation: Navigation,
 	page: Page,
