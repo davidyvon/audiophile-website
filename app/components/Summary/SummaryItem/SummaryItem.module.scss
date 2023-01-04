@@ -17,6 +17,10 @@
 	background: var(--color-gray);
 }
 
+.product {
+	margin-right: auto;
+}
+
 .name,
 .quantity {
 	@include text-body--strong;
