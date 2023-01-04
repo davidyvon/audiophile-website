@@ -16,6 +16,7 @@ import Gallery from '../app/components/Gallery/Gallery'
 import Feature from '../app/components/Feature/Feature'
 import FeatureItem from '../app/components/Feature/FeatureItem/FeatureItem'
 import Footer from '../app/components/Footer/Footer'
+import Form from '../app/components/Form/Form'
 import FormField from '../app/components/Form/FormField/FormField'
 import FormInput from '../app/components/Form/FormInput/FormInput'
 import FormRadio from '../app/components/Form/FormRadio/FormRadio'
@@ -40,6 +41,7 @@ const components = {
 	feature: Feature,
 	featureItem: FeatureItem,
 	footer: Footer,
+	form: Form,
 	formField: FormField,
 	formInput: FormInput,
 	formRadio: FormRadio,

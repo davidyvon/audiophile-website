@@ -1,0 +1,122 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.outer {
+	background: var(--color-gray);
+}
+
+.section {
+	@include grid-xs;
+	padding-top: getSpacing(8);
+	padding-bottom: getSpacing(12);
+}
+
+.form {
+	@include grid-xs;
+	padding: 0;
+	width: 100%;
+}
+
+.form,
+.checkout,
+.heading,
+.summary {
+	grid-column: 1 / -1;
+}
+
+.heading {
+	align-self: flex-start;
+
+	& > * {
+		@include text-heading-m;
+	}
+}
+
+.checkout,
+.summary {
+	padding: getSpacing(3);
+	border-radius: getRadius("s");
+	background: var(--color-white);
+}
+
+.checkout {
+	@include flex-center(column);
+	align-items: stretch;
+	gap: getSpacing(4);
+	margin-bottom: getSpacing(4);
+}
+
+.payment {
+	@include flex-center(column);
+	align-items: stretch;
+	gap: getSpacing(3);
+}
+
+.button {
+	min-width: 100%;
+}
+
+// .summary {}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section {
+		@include grid-md;
+		padding-top: getSpacing(12);
+		padding-bottom: getSpacing(20);
+	}
+
+	.form {
+		@include grid-md;
+		padding: 0;
+	}
+
+	.heading {
+		& > * {
+			@include text-heading-l;
+		}
+	}
+
+	.checkout,
+	.summary {
+		padding: getSpacing(4);
+	}
+
+	.checkout {
+		gap: getSpacing(8);
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section {
+		@include grid-lg;
+		padding-top: getSpacing(16);
+		padding-bottom: getSpacing(16);
+	}
+
+	.form {
+		@include grid-lg;
+		padding: 0;
+	}
+
+	.checkout,
+	.summary {
+		padding: getSpacing(6) getSpacing(4);
+	}
+
+	.checkout {
+		grid-column: 1 / 9;
+		margin-bottom: 0;
+	}
+
+	.summary {
+		grid-column: 9 / -1;
+	}
+}
