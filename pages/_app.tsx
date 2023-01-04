@@ -14,6 +14,7 @@ import CartItem from '../app/components/Cart/CartItem/CartItem'
 import CtaLarge from '../app/components/CtaLarge/CtaLarge'
 import CtaSmall from '../app/components/CtaSmall/CtaSmall'
 import CtaSplit from '../app/components/CtaSplit/CtaSplit'
+import Display from '../app/components/Display/Display'
 import Gallery from '../app/components/Gallery/Gallery'
 import Feature from '../app/components/Feature/Feature'
 import FeatureItem from '../app/components/Feature/FeatureItem/FeatureItem'
@@ -42,6 +43,7 @@ const components = {
 	ctaLarge: CtaLarge,
 	ctaSmall: CtaSmall,
 	ctaSplit: CtaSplit,
+	display: Display,
 	feature: Feature,
 	featureItem: FeatureItem,
 	footer: Footer,
