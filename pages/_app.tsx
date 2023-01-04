@@ -30,6 +30,7 @@ import Navigation from '../app/components/Navigation/Navigation'
 import Page from '../app/components/Page/Page'
 import Preview from '../app/components/Preview/Preview'
 import Product from '../app/components/Product/Product'
+import Summary from '../app/components/Summary/Summary'
 import SummaryItem from '../app/components/Summary/SummaryItem/SummaryItem'
 
 const components = {
@@ -60,6 +61,7 @@ const components = {
 	page: Page,
 	preview: Preview,
 	product: Product,
+	summary: Summary,
 	summaryItem: SummaryItem,
 }
 

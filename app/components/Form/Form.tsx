@@ -17,6 +17,7 @@ type FormProps = {
 		billing?: SbBlokData[]
 		shipping?: SbBlokData[]
 		payment?: SbBlokData[]
+		summary?: SbBlokData[]
 		buttons?: SbBlokData[]
 	}
 }
@@ -27,6 +28,7 @@ const Form = ({ blok }: FormProps): JSX.Element => {
 		billing = [],
 		shipping = [],
 		payment = [],
+		summary = [],
 		buttons = [],
 	} = blok
 
@@ -94,6 +96,16 @@ const Form = ({ blok }: FormProps): JSX.Element => {
 					</div>
 
 					<div className={styles.summary}>
+						{summary &&
+							summary.map((props) => (
+								<StoryblokComponent
+									key={props._uid}
+									blok={props}
+									value={formData}
+									onChange={handleChange}
+								/>
+							))}
+
 						<div className={styles.buttons}>
 							{buttons &&
 								buttons.map((button) => (

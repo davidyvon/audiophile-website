@@ -56,8 +56,6 @@
 	min-width: 100%;
 }
 
-// .summary {}
-
 // ------------------------------------------------------------
 //  MD
 // ------------------------------------------------------------
@@ -106,17 +104,15 @@
 		padding: 0;
 	}
 
-	.checkout,
-	.summary {
-		padding: getSpacing(6) getSpacing(4);
-	}
-
 	.checkout {
 		grid-column: 1 / 9;
+		padding: getSpacing(6) getSpacing(4);
 		margin-bottom: 0;
 	}
 
 	.summary {
 		grid-column: 9 / -1;
+		padding: getSpacing(4);
+		height: fit-content;
 	}
 }
