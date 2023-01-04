@@ -9,6 +9,7 @@ import CardLarge from '../app/components/CardLarge/CardLarge'
 import CardLargeItem from '../app/components/CardLarge/CardLargeItem/CardLargeItem'
 import CardSmall from '../app/components/CardSmall/CardSmall'
 import CardSmallItem from '../app/components/CardSmall/CardSmallItem/CardSmallItem'
+import Cart from '../app/components/Cart/Cart'
 import CartItem from '../app/components/Cart/CartItem/CartItem'
 import CtaLarge from '../app/components/CtaLarge/CtaLarge'
 import CtaSmall from '../app/components/CtaSmall/CtaSmall'
@@ -36,6 +37,7 @@ const components = {
 	cardLargeItem: CardLargeItem,
 	cardSmall: CardSmall,
 	cardSmallItem: CardSmallItem,
+	cart: Cart,
 	cartItem: CartItem,
 	ctaLarge: CtaLarge,
 	ctaSmall: CtaSmall,
