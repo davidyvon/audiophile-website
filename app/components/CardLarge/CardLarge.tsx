@@ -4,6 +4,7 @@ import {
 	StoryblokComponent,
 	SbBlokData,
 } from '@storyblok/react'
+import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './CardLarge.module.scss'
 
 type CardLargeProps = {
@@ -12,16 +13,23 @@ type CardLargeProps = {
 		_uid: string
 		_editable?: string
 
+		heading?: string
 		cards?: SbBlokData[]
 	}
 }
 
 const CardLarge = ({ blok }: CardLargeProps): JSX.Element => {
-	const { cards } = blok
+	const { heading, cards } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
 			<div className={styles.container}>
+				{heading && (
+					<div className={styles.heading} {...storyblokEditable(blok)}>
+						{render(heading)}
+					</div>
+				)}
+
 				<div className={styles.cards}>
 					{cards &&
 						cards.map((card) => (

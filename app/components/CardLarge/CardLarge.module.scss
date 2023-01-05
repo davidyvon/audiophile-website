@@ -7,6 +7,17 @@
 	padding-bottom: getSpacing(6);
 }
 
+.heading {
+	grid-column: 1 / -1;
+	text-align: center;
+	color: var(--color-black);
+	margin-bottom: getSpacing(5);
+
+	& > * {
+		@include text-heading-s;
+	}
+}
+
 .cards {
 	@include flex-center(column);
 	flex-wrap: nowrap;
@@ -24,6 +35,14 @@
 		padding-top: getSpacing(12);
 		padding-bottom: getSpacing(12);
 		justify-content: space-between;
+	}
+
+	.heading {
+		margin-bottom: getSpacing(8);
+
+		& > * {
+			@include text-heading-l;
+		}
 	}
 
 	.cards {
