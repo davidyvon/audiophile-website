@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './CtaSplit.module.scss'
@@ -23,12 +27,12 @@ type CtaSplitProps = {
 			alt: '' | string
 		}
 		heading?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 	}
 }
 
 const CtaSplit = ({ blok }: CtaSplitProps): JSX.Element => {
-	const { heading, buttons = [], imageDesktop, imageTablet, imageMobile } = blok
+	const { heading, buttons, imageDesktop, imageTablet, imageMobile } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

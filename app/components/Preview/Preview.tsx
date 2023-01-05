@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './Preview.module.scss'
@@ -20,7 +24,7 @@ type PreviewProps = {
 		label?: string
 		heading?: string
 		description?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 	}
 }
 
@@ -31,7 +35,7 @@ const Preview = ({ blok }: PreviewProps): JSX.Element => {
 		label,
 		heading,
 		description,
-		buttons = [],
+		buttons,
 		image,
 	} = blok
 

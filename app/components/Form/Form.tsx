@@ -23,14 +23,7 @@ type FormProps = {
 }
 
 const Form = ({ blok }: FormProps): JSX.Element => {
-	const {
-		heading,
-		billing = [],
-		shipping = [],
-		payment = [],
-		summary = [],
-		buttons = [],
-	} = blok
+	const { heading, billing, shipping, payment, summary, buttons } = blok
 
 	const [formData, setFormData] = useState({})
 

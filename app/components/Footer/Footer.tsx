@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import styles from './Footer.module.scss'
 import NextLink from 'next/link'
 import Image from 'next/image'
@@ -14,15 +18,15 @@ type FooterProps = {
 			filename: string
 			alt: '' | string
 		}
-		links?: [{ link: string }]
+		links?: SbBlokData[]
 		description?: string
 		copyright?: string
-		socials?: [{ link: string }]
+		socials?: SbBlokData[]
 	}
 }
 
 const Footer = ({ blok }: FooterProps): JSX.Element => {
-	const { logo, links = [], description, copyright, socials = [] } = blok
+	const { logo, links, description, copyright, socials } = blok
 
 	return (
 		<footer className={styles.footer} {...storyblokEditable(blok)}>

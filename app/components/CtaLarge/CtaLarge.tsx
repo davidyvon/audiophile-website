@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import Circles from '../../assets/icons/Circles'
@@ -17,12 +21,12 @@ type CtaLargeProps = {
 		}
 		heading?: string
 		description?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 	}
 }
 
 const CtaLarge = ({ blok }: CtaLargeProps): JSX.Element => {
-	const { image, heading, description, buttons = [] } = blok
+	const { image, heading, description, buttons } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import Image from 'next/image'
 import styles from './CardSmallItem.module.scss'
 
@@ -10,7 +14,7 @@ type CardSmallItemProps = {
 		_editable?: string
 
 		label?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 		image?: {
 			filename: string
 			alt: '' | string
@@ -19,7 +23,7 @@ type CardSmallItemProps = {
 }
 
 const CardSmallItem = ({ blok }: CardSmallItemProps): JSX.Element => {
-	const { label, buttons = [], image } = blok
+	const { label, buttons, image } = blok
 
 	return (
 		<article className={styles.article} {...storyblokEditable(blok)}>

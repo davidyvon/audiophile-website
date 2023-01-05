@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import styles from './CardSmall.module.scss'
 
 type CardSmallProps = {
@@ -8,12 +12,12 @@ type CardSmallProps = {
 		_uid: string
 		_editable?: string
 
-		cards?: [{ card: string }]
+		cards?: SbBlokData[]
 	}
 }
 
 const CardSmall = ({ blok }: CardSmallProps): JSX.Element => {
-	const { cards = [] } = blok
+	const { cards } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
