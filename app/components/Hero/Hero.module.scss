@@ -3,7 +3,7 @@
 
 .section {
 	position: relative;
-	height: 100vh;
+	height: calc(100vh - 88px);
 	border-radius: 0 0 getRadius("s") getRadius("s");
 	background: var(--color-black-mid);
 }
