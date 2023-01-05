@@ -11,7 +11,9 @@ type ButtonProps = {
 		_uid: string
 		_editable?: string
 
+		type: 'button' | 'submit' | 'reset'
 		style: 'primary' | 'secondary' | 'outline' | 'light'
+		fullWidth: boolean
 		label?: string
 		link?:
 			| ''
@@ -29,29 +31,51 @@ type ButtonProps = {
 }
 
 const Button = ({ blok }: ButtonProps): JSX.Element => {
-	const { style, label, link } = blok
+	const { type = 'button', style, fullWidth, label, link } = blok
 
 	const buttonStyle = classNames(
 		styles.button,
 		{ [styles.primary]: style === 'primary' },
 		{ [styles.secondary]: style === 'secondary' },
 		{ [styles.outline]: style === 'outline' },
-		{ [styles.light]: style === 'light' }
+		{ [styles.light]: style === 'light' },
+		{ [styles.fullWidth]: fullWidth }
 	)
 
+	if (type === 'submit') {
+		return (
+			<>
+				{label && (
+					<button
+						type={type}
+						className={styles.container}
+						{...storyblokEditable(blok)}
+					>
+						<div className={buttonStyle}>
+							{label}
+							{style === 'light' && <Icon className={styles.icon} />}
+						</div>
+					</button>
+				)}
+			</>
+		)
+	}
+
 	return (
-		<div {...storyblokEditable(blok)}>
+		<>
 			{label && link && (
-				<NextLink
-					href={`${link.linktype === 'story' ? link.story?.url : link.url}`}
-					target={link.target}
-					className={buttonStyle}
-				>
-					{label}
-					{style === 'light' && <Icon className={styles.icon} />}
-				</NextLink>
+				<div className={styles.container} {...storyblokEditable(blok)}>
+					<NextLink
+						href={`${link.linktype === 'story' ? link.story?.url : link.url}`}
+						target={link.target}
+						className={buttonStyle}
+					>
+						{label}
+						{style === 'light' && <Icon className={styles.icon} />}
+					</NextLink>
+				</div>
 			)}
-		</div>
+		</>
 	)
 }
 

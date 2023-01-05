@@ -40,7 +40,9 @@ const CardLargeItem = ({ blok }: CardLargeItemProps): JSX.Element => {
 					{label && <p className={styles.label}>{label}</p>}
 					{buttons &&
 						buttons.map((button) => (
-							<StoryblokComponent key={button._uid} blok={button} />
+							<div key={button._uid} className={styles.button}>
+								<StoryblokComponent blok={button} />
+							</div>
 						))}
 				</div>
 			</div>

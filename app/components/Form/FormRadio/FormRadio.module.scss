@@ -1,0 +1,176 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.heading {
+	margin-bottom: getSpacing(2);
+	color: var(--color-orange);
+
+	& > * {
+		@include text-label;
+	}
+}
+
+.container,
+.radio {
+	@include flex-center(column);
+}
+
+.container {
+	align-items: stretch;
+	margin-bottom: getSpacing(4);
+	gap: getSpacing(2);
+}
+
+.label,
+.radio {
+	width: 100%;
+}
+
+.label {
+	@include text-input;
+	color: var(--color-black);
+}
+
+.radio {
+	gap: getSpacing(2);
+}
+
+.field,
+.input {
+	cursor: pointer;
+}
+
+.field {
+	@include text-input;
+	@include flex-center(row);
+	justify-content: flex-start;
+	gap: getSpacing(2);
+	width: 100%;
+	padding: getSpacing(2) getSpacing(2);
+	border: 1px solid var(--color-gray-mid);
+	border-radius: getRadius("s");
+	cursor: pointer;
+
+	&:hover {
+		border: 1px solid var(--color-orange);
+	}
+
+	&:focus {
+		border: 1px solid var(--color-orange);
+		outline: none;
+	}
+
+	&:checked {
+		border: 1px solid var(--color-orange);
+	}
+
+	&.card {
+		&.cardField {
+			border: 1px solid var(--color-orange);
+		}
+	}
+
+	&.cash {
+		&.cashField {
+			border: 1px solid var(--color-orange);
+		}
+	}
+}
+
+.input {
+	position: relative;
+	visibility: hidden;
+	margin: 0;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		border-radius: 50%;
+		visibility: visible;
+	}
+
+	&::before {
+		width: 20px;
+		height: 20px;
+		border: 1px solid var(--color-gray-mid);
+		background: var(--color-white);
+	}
+
+	&::after {
+		width: 10px;
+		height: 10px;
+		background: var(--color-orange);
+		display: none;
+	}
+
+	&.card {
+		&.cardInput::after {
+			display: block;
+		}
+	}
+
+	&.cash {
+		&.cashInput::after {
+			display: block;
+		}
+	}
+}
+
+.formFields {
+	&.card {
+		display: block;
+	}
+
+	&.cash {
+		display: none;
+	}
+}
+
+.infos {
+	@include flex-center(row);
+	gap: getSpacing(4);
+
+	&.card {
+		display: none;
+	}
+
+	&.cash {
+		display: flex;
+	}
+}
+
+.image {
+	width: 48px;
+	height: 48px;
+}
+
+.paymentInfos {
+	@include text-body;
+	color: var(--color-black);
+	opacity: 0.5;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.container {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.container {
+		gap: getSpacing(4);
+	}
+}

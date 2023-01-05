@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './Counter.module.scss'
 import classNames from 'classnames'
 
@@ -10,20 +10,19 @@ type CounterProps = {
 
 		size: 'small' | 'large'
 	}
+
+	quantity: number
+	onIncrease: () => void
+	onDecrease: () => void
 }
 
-const Counter = ({ blok }: CounterProps): JSX.Element => {
+const Counter = ({
+	blok,
+	quantity = 0,
+	onIncrease,
+	onDecrease,
+}: CounterProps): JSX.Element => {
 	const { size } = blok
-
-	const [count, setCount] = useState(0)
-
-	const handleIncrease = () => {
-		setCount(count + 1)
-	}
-
-	const handleDecrease = () => {
-		count >= 1 && setCount(count - 1)
-	}
 
 	const counterStyle = classNames(
 		styles.counter,
@@ -33,11 +32,11 @@ const Counter = ({ blok }: CounterProps): JSX.Element => {
 
 	return (
 		<div className={counterStyle}>
-			<button onClick={handleDecrease} className={styles.minus}>
+			<button onClick={onDecrease} className={styles.minus}>
 				-
 			</button>
-			<div className={styles.count}>{count}</div>
-			<button onClick={handleIncrease} className={styles.plus}>
+			<div className={styles.count}>{quantity}</div>
+			<button onClick={onIncrease} className={styles.plus}>
 				+
 			</button>
 		</div>

@@ -1,0 +1,52 @@
+@use "../../../styles/utils" as *;
+@use "../../../styles/typography" as *;
+
+.container {
+	@include flex-center(row);
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	gap: getSpacing(2);
+	color: var(--color-black);
+}
+
+.image {
+	width: 64px;
+	height: 64px;
+	border-radius: getRadius("s");
+	background: var(--color-gray);
+}
+
+.product {
+	margin-right: auto;
+}
+
+.name,
+.quantity {
+	@include text-body--strong;
+}
+
+.price,
+.quantity {
+	opacity: 0.5;
+}
+
+.price {
+	@include text-label;
+}
+
+.quantity {
+	margin-left: auto;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+// @include media("md") {}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+// @include media("lg") {}

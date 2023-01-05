@@ -1,0 +1,75 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.container,
+.items,
+.prices {
+	@include flex-center(column);
+}
+
+.items,
+.prices,
+.total, {
+	width: 100%;
+}
+
+.container {
+	gap: getSpacing(3);
+	padding-bottom: getSpacing(4);
+	border-radius: getRadius("s");
+	color: var(--color-black);
+	background: var(--color-white);
+}
+
+.heading {
+	gap: getSpacing(1);
+	align-self: flex-start;
+
+	& > * {
+		@include text-heading-xs;
+	}
+}
+
+.items {
+	gap: getSpacing(3);
+}
+
+.prices {
+	gap: getSpacing(1);
+	align-items: space-between;
+}
+
+.label {
+	@include text-body--uppercase;
+	opacity: 0.5;
+}
+
+.amount {
+	@include text-heading-xs;
+}
+
+.total {
+	@include flex-center(row);
+	justify-content: space-between;
+	gap: getSpacing(2);
+
+	&:last-child {
+		margin-top: getSpacing(2);
+
+		.amount {
+			color: var(--color-orange);
+		}
+	}
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+// @include media("md") {}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+// @include media("lg") {}

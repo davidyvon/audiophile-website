@@ -1,0 +1,116 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.section {
+	@include grid-xs;
+	background: grey; // TEMPORARY TEST COLOR
+	padding-top: getSpacing(3);
+	padding-bottom: getSpacing(3);
+}
+
+.container,
+.cart,
+.items {
+	@include flex-center(column);
+	width: 100%;
+}
+
+.container {
+	grid-column: 1 / -1;
+	gap: getSpacing(4);
+	padding: getSpacing(4);
+	color: var(--color-black);
+	border-radius: getRadius("s");
+	background: var(--color-white);
+}
+
+.cart {
+	gap: getSpacing(3);
+}
+
+.header,
+.heading,
+.total {
+	@include flex-center(row);
+}
+
+.header,
+.total {
+	justify-content: space-between;
+	gap: getSpacing(2);
+	width: 100%;
+}
+
+.heading {
+	gap: getSpacing(1);
+
+	& > * {
+		@include text-heading-xs;
+	}
+}
+
+.quantity {
+	@include text-heading-xs;
+	margin-bottom: 1.5px;
+}
+
+.clear {
+	@include text-body;
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: transparent;
+	opacity: 0.5;
+	text-decoration: underline;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	&:hover {
+		color: var(--color-orange);
+	}
+}
+
+.items {
+	gap: getSpacing(3);
+}
+
+.label {
+	@include text-body--uppercase;
+	opacity: 0.5;
+}
+
+.price {
+	@include text-heading-xs;
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.section {
+		@include grid-md;
+		padding-top: getSpacing(3);
+		padding-bottom: getSpacing(3);
+	}
+
+	.container {
+		grid-column: 6 / -1;
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.section {
+		@include grid-lg;
+		padding-top: getSpacing(4);
+		padding-bottom: getSpacing(4);
+	}
+
+	.container {
+		grid-column: 8 / -1;
+	}
+}

@@ -79,10 +79,41 @@
 	text-transform: uppercase;
 }
 
+@mixin text-input {
+	font-family: Manrope-bold, sans-serif;
+	font-weight: 700;
+	font-size: 0.88rem;
+	letter-spacing: 0.25px;
+}
+
+@mixin text-input--error {
+	font-family: Manrope-Medium, sans-serif;
+	font-weight: 500;
+	font-size: 0.75rem;
+	letter-spacing: 0.21px;
+}
+
 @mixin text-body {
 	font-family: Manrope-Medium, sans-serif;
 	font-weight: 500;
 	font-size: 0.94rem;
 	line-height: 1.56rem;
 	letter-spacing: 1px;
+}
+
+@mixin text-body--strong {
+	font-family: Manrope-bold, sans-serif;
+	font-weight: 700;
+	font-size: 0.94rem;
+	line-height: 1.56rem;
+	letter-spacing: 1px;
+}
+
+@mixin text-body--uppercase {
+	font-family: Manrope-bold, sans-serif;
+	font-weight: 700;
+	font-size: 0.94rem;
+	line-height: 1.56rem;
+	letter-spacing: 1px;
+	text-transform: uppercase;
 }
