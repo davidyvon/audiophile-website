@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './Feature.module.scss'
 
@@ -12,12 +16,12 @@ type FeatureProps = {
 		featureHeading?: string
 		description?: string
 		listHeading?: string
-		items?: [{ label: string }]
+		items?: SbBlokData[]
 	}
 }
 
 const Feature = ({ blok }: FeatureProps): JSX.Element => {
-	const { featureHeading, description, listHeading, items = [] } = blok
+	const { featureHeading, description, listHeading, items } = blok
 
 	return (
 		<article className={styles.article} {...storyblokEditable(blok)}>

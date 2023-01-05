@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './CtaSmall.module.scss'
@@ -11,7 +15,7 @@ type CtaSmallProps = {
 		_editable?: string
 
 		heading?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 		imageDesktop?: {
 			filename: string
 			alt: '' | string
@@ -28,7 +32,7 @@ type CtaSmallProps = {
 }
 
 const CtaSmall = ({ blok }: CtaSmallProps): JSX.Element => {
-	const { heading, buttons = [], imageDesktop, imageTablet, imageMobile } = blok
+	const { heading, buttons, imageDesktop, imageTablet, imageMobile } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

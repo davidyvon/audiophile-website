@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import Counter from '../Counter/Counter'
@@ -19,7 +23,7 @@ type DisplayProps = {
 		heading?: string
 		description?: string
 		price?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 	}
 
 	quantity?: number
@@ -33,7 +37,7 @@ const Display = ({
 	onDecrease,
 	blok,
 }: DisplayProps): JSX.Element => {
-	const { image, label, heading, description, price, buttons = [] } = blok
+	const { image, label, heading, description, price, buttons } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

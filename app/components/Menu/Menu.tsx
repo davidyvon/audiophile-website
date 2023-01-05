@@ -7,13 +7,12 @@ type MenuProps = {
 		component: string
 		_uid: string
 		_editable?: string
-
-		className?: string
 	}
+
+	className?: string
 }
 
-const Menu = ({ blok }: MenuProps): JSX.Element => {
-	const { className } = blok
+const Menu = ({ className }: MenuProps): JSX.Element => {
 	const [openMenu, setOpenMenu] = useState(false)
 
 	const handleMenu = () => {

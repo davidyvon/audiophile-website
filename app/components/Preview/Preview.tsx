@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './Preview.module.scss'
@@ -11,7 +15,6 @@ type PreviewProps = {
 		_uid: string
 		_editable?: string
 
-		className?: string
 		imagePosition: 'left' | 'right'
 		image?: {
 			filename: string
@@ -20,20 +23,14 @@ type PreviewProps = {
 		label?: string
 		heading?: string
 		description?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 	}
+
+	className?: string
 }
 
-const Preview = ({ blok }: PreviewProps): JSX.Element => {
-	const {
-		className,
-		imagePosition,
-		label,
-		heading,
-		description,
-		buttons = [],
-		image,
-	} = blok
+const Preview = ({ blok, className }: PreviewProps): JSX.Element => {
+	const { imagePosition, label, heading, description, buttons, image } = blok
 
 	const sharedStyles = classNames(className, {
 		[styles.imageRight]: imagePosition === 'right',

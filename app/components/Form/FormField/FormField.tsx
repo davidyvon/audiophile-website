@@ -23,7 +23,7 @@ type FormFieldProps = {
 }
 
 const FormField = ({ blok, value, onChange }: FormFieldProps): JSX.Element => {
-	const { heading, inputs = [] } = blok
+	const { heading, inputs } = blok
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

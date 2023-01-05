@@ -1,5 +1,9 @@
 import React from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './Hero.module.scss'
@@ -13,7 +17,7 @@ type HeroProps = {
 		label?: string
 		heading?: string
 		description?: string
-		buttons?: [{ label: string }]
+		buttons?: SbBlokData[]
 		imageDesktop?: {
 			filename: string
 			alt: '' | string
@@ -32,9 +36,9 @@ type HeroProps = {
 const Hero = ({ blok }: HeroProps): JSX.Element => {
 	const {
 		label,
-		heading = [],
+		heading,
 		description,
-		buttons = [],
+		buttons,
 		imageDesktop,
 		imageTablet,
 		imageMobile,
@@ -55,17 +59,17 @@ const Hero = ({ blok }: HeroProps): JSX.Element => {
 							))}
 					</div>
 				</article>
-			</div>
 
-			{imageDesktop && imageDesktop.filename && (
-				<Image
-					className={styles.imageDesktop}
-					src={imageDesktop.filename}
-					alt={imageDesktop.alt}
-					width={1440}
-					height={729}
-				/>
-			)}
+				{imageDesktop && imageDesktop.filename && (
+					<Image
+						className={styles.imageDesktop}
+						src={imageDesktop.filename}
+						alt={imageDesktop.alt}
+						width={1418}
+						height={1772}
+					/>
+				)}
+			</div>
 
 			{imageTablet && imageTablet.filename && (
 				<Image

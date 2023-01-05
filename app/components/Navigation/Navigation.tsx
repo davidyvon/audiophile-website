@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import styles from './Navigation.module.scss'
 import NextLink from 'next/link'
 import Image from 'next/image'
@@ -12,28 +16,23 @@ type NavigationProps = {
 		_uid: string
 		_editable?: string
 
-		className?: string
 		logo?: {
 			filename: string
 			alt: '' | string
 		}
-		desktopLinks?: [{ link: string }]
+		desktopLinks?: SbBlokData[]
 		cartIcon?: {
 			filename: string
 			alt: '' | string
 		}
-		mobileLinks?: [{ link: string }]
+		mobileLinks?: SbBlokData[]
 	}
+
+	className?: string
 }
 
-const Navigation = ({ blok }: NavigationProps): JSX.Element => {
-	const {
-		className,
-		logo,
-		desktopLinks = [],
-		cartIcon,
-		mobileLinks = [],
-	} = blok
+const Navigation = ({ blok, className }: NavigationProps): JSX.Element => {
+	const { logo, desktopLinks, cartIcon, mobileLinks } = blok
 
 	const [openMenu, setOpenMenu] = useState(false)
 	const [openCart, setOpenCart] = useState(false)

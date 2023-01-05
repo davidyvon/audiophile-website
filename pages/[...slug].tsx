@@ -6,13 +6,14 @@ import {
 	getStoryblokApi,
 	StoryblokComponent,
 	StoryData,
+	SbBlokData,
 } from '@storyblok/react'
 
 type PageProps = {
 	story: StoryData & {
 		content: {
 			_uid: string
-			body: unknown[]
+			body: SbBlokData[]
 			component: 'page'
 			name: string
 			_editable: string
@@ -24,18 +25,15 @@ export default function Page({ story }: PageProps) {
 	story = useStoryblokState(story)
 
 	return (
-		<div>
+		<>
 			<Head>
-				<title>{story ? story.name : 'My Site'}</title>
+				<title>{story ? story.name : 'Audiophile'}</title>
+				<meta name='description' content='Audiophile Website' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<header>
-				<h1>{story ? story.name : 'My Site'}</h1>
-			</header>
-
 			<StoryblokComponent blok={story.content} />
-		</div>
+		</>
 	)
 }
 

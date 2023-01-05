@@ -1,19 +1,19 @@
 import React from 'react'
 import Head from 'next/head'
-import Logo from '../app/assets/icons/Vercel'
 
 import {
 	useStoryblokState,
 	getStoryblokApi,
 	StoryblokComponent,
 	StoryData,
+	SbBlokData,
 } from '@storyblok/react'
 
 type HomeProps = {
 	story: StoryData & {
 		content: {
 			_uid: string
-			body: unknown[]
+			body: SbBlokData[]
 			component: 'page'
 			name: string
 			_editable: string
@@ -25,19 +25,15 @@ const Home = ({ story }: HomeProps) => {
 	story = useStoryblokState(story)
 
 	return (
-		<div>
+		<>
 			<Head>
-				<title>Home</title>
-				<meta name='description' content='Home page' />
+				<title>{story ? story.name : 'Audiophile'}</title>
+				<meta name='description' content='Homepage' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<main>
-				<Logo width='50' height='50' />
-				<h1>{story ? story.name : 'My Site'}</h1>
-				<StoryblokComponent blok={story.content} />
-			</main>
-		</div>
+			<StoryblokComponent blok={story.content} />
+		</>
 	)
 }
 
