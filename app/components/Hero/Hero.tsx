@@ -59,17 +59,17 @@ const Hero = ({ blok }: HeroProps): JSX.Element => {
 							))}
 					</div>
 				</article>
-			</div>
 
-			{imageDesktop && imageDesktop.filename && (
-				<Image
-					className={styles.imageDesktop}
-					src={imageDesktop.filename}
-					alt={imageDesktop.alt}
-					width={1440}
-					height={729}
-				/>
-			)}
+				{imageDesktop && imageDesktop.filename && (
+					<Image
+						className={styles.imageDesktop}
+						src={imageDesktop.filename}
+						alt={imageDesktop.alt}
+						width={1418}
+						height={1772}
+					/>
+				)}
+			</div>
 
 			{imageTablet && imageTablet.filename && (
 				<Image

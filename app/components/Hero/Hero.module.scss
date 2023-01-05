@@ -3,16 +3,16 @@
 
 .section {
 	position: relative;
-	background: var(--color-black);
 	height: 100vh;
+	border-radius: 0 0 getRadius("s") getRadius("s");
+	background: var(--color-black-mid);
 }
 
 .container {
+	@include grid-xs;
 	position: relative;
 	z-index: 1;
 	height: 100%;
-
-	@include grid-xs;
 	padding-top: getSpacing(1);
 	padding-bottom: getSpacing(1);
 	color: var(--color-white);
@@ -49,6 +49,7 @@
 .imageTablet,
 .imageMobile {
 	@include image-cover;
+	border-radius: 0 0 getRadius("s") getRadius("s");
 }
 
 .imageDesktop,
@@ -105,7 +106,12 @@
 	}
 
 	.imageDesktop {
+		position: relative;
+		grid-column: 7 / -1;
 		display: block;
+		height: auto;
+		align-self: center;
+		border-radius: none;
 	}
 
 	.imageTablet,
