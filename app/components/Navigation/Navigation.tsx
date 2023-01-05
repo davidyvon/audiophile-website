@@ -16,7 +16,6 @@ type NavigationProps = {
 		_uid: string
 		_editable?: string
 
-		className?: string
 		logo?: {
 			filename: string
 			alt: '' | string
@@ -28,10 +27,12 @@ type NavigationProps = {
 		}
 		mobileLinks?: SbBlokData[]
 	}
+
+	className?: string
 }
 
-const Navigation = ({ blok }: NavigationProps): JSX.Element => {
-	const { className, logo, desktopLinks, cartIcon, mobileLinks } = blok
+const Navigation = ({ blok, className }: NavigationProps): JSX.Element => {
+	const { logo, desktopLinks, cartIcon, mobileLinks } = blok
 
 	const [openMenu, setOpenMenu] = useState(false)
 	const [openCart, setOpenCart] = useState(false)

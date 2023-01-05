@@ -15,7 +15,6 @@ type PreviewProps = {
 		_uid: string
 		_editable?: string
 
-		className?: string
 		imagePosition: 'left' | 'right'
 		image?: {
 			filename: string
@@ -26,18 +25,12 @@ type PreviewProps = {
 		description?: string
 		buttons?: SbBlokData[]
 	}
+
+	className?: string
 }
 
-const Preview = ({ blok }: PreviewProps): JSX.Element => {
-	const {
-		className,
-		imagePosition,
-		label,
-		heading,
-		description,
-		buttons,
-		image,
-	} = blok
+const Preview = ({ blok, className }: PreviewProps): JSX.Element => {
+	const { imagePosition, label, heading, description, buttons, image } = blok
 
 	const sharedStyles = classNames(className, {
 		[styles.imageRight]: imagePosition === 'right',
