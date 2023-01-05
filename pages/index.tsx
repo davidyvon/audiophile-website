@@ -6,13 +6,14 @@ import {
 	getStoryblokApi,
 	StoryblokComponent,
 	StoryData,
+	SbBlokData,
 } from '@storyblok/react'
 
 type HomeProps = {
 	story: StoryData & {
 		content: {
 			_uid: string
-			body: unknown[]
+			body: SbBlokData[]
 			component: 'page'
 			name: string
 			_editable: string
