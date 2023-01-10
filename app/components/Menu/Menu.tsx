@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Menu.module.scss'
 import classNames from 'classnames'
 
@@ -7,15 +7,24 @@ type MenuProps = {
 }
 
 const Menu = ({ className }: MenuProps): JSX.Element => {
-	const [openMenu, setOpenMenu] = useState(false)
+	const [isMounted, setIsMounted] = useState(false)
+	const [isOpen, setIsOpen] = useState(false)
+	const [animationDirection, setAnimationDirection] = useState<
+		'open' | 'close' | 'initial'
+	>('initial')
+
+	useEffect(() => {
+		setIsMounted(true)
+	}, [])
 
 	const handleMenu = () => {
-		setOpenMenu(!openMenu)
+		isMounted && setIsOpen(!isOpen)
+		isOpen ? setAnimationDirection('close') : setAnimationDirection('open')
 	}
 
 	const menuStyle = classNames(className, {
-		[styles.openMenu]: openMenu,
-		[styles.closeMenu]: !openMenu,
+		[styles.openMenu]: animationDirection === 'open',
+		[styles.closeMenu]: animationDirection === 'close',
 	})
 
 	return (
