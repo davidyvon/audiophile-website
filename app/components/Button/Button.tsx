@@ -28,9 +28,11 @@ type ButtonProps = {
 					target?: '_blank'
 			  }
 	}
+
+	onClick: () => void
 }
 
-const Button = ({ blok }: ButtonProps): JSX.Element => {
+const Button = ({ blok, onClick }: ButtonProps): JSX.Element => {
 	const { type = 'button', style, fullWidth, label, link } = blok
 
 	const buttonStyle = classNames(
@@ -49,6 +51,7 @@ const Button = ({ blok }: ButtonProps): JSX.Element => {
 					<button
 						type={type}
 						className={styles.container}
+						onClick={onClick}
 						{...storyblokEditable(blok)}
 					>
 						<div className={buttonStyle}>

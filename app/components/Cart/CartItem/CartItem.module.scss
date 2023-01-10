@@ -2,17 +2,25 @@
 @use "../../../styles/typography" as *;
 
 .container {
+	@include flex-center(column);
+	justify-content: flex-start;
+	width: 100%;
+	gap: getSpacing(3);
+	color: var(--color-black);
+}
+
+.items {
 	@include flex-center(row);
-	justify-content: space-between;
-	flex-wrap: wrap;
 	width: 100%;
 	gap: getSpacing(2);
-	color: var(--color-black);
+	flex-wrap: wrap;
 }
 
 .image {
 	width: 64px;
 	height: 64px;
+	min-width: 64px;
+	min-height: 64px;
 	border-radius: getRadius("s");
 	background: var(--color-gray);
 }
@@ -26,6 +34,12 @@
 	opacity: 0.5;
 }
 
+.quantity {
+	@include text-body--strong;
+	opacity: 0.5;
+}
+
+.quantity,
 .counter {
 	margin-left: auto;
 }

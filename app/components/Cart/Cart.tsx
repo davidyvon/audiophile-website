@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
 	storyblokEditable,
 	SbBlokData,
@@ -6,6 +6,8 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './Cart.module.scss'
+import CartItem from './CartItem/CartItem'
+import CartContext from '../../context/CartContext'
 
 type CartProps = {
 	blok: {
@@ -15,14 +17,15 @@ type CartProps = {
 
 		heading?: string
 		clear?: string
-		cartItems?: SbBlokData[]
 		label?: string
 		buttons?: SbBlokData[]
 	}
 }
 
 const Cart = ({ blok }: CartProps): JSX.Element => {
-	const { heading, clear, cartItems, label, buttons } = blok
+	const { heading, clear, label, buttons } = blok
+
+	const { clearCart, totalQuantity, cartTotal } = useContext(CartContext)
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
@@ -32,26 +35,26 @@ const Cart = ({ blok }: CartProps): JSX.Element => {
 						{heading && (
 							<div className={styles.heading}>
 								{render(heading)}
-								<span className={styles.quantity}>(1)</span>
+								<span className={styles.quantity}>{`(${totalQuantity})`}</span>
 							</div>
 						)}
 
-						{clear && <button className={styles.clear}>{clear}</button>}
+						{totalQuantity > 0 && clear && (
+							<button onClick={clearCart} className={styles.clear}>
+								{clear}
+							</button>
+						)}
 					</div>
 
-					<div className={styles.items}>
-						{cartItems &&
-							cartItems.map((cartItem) => (
-								<StoryblokComponent key={cartItem._uid} blok={cartItem} />
-							))}
-					</div>
+					{totalQuantity > 0 && <CartItem type={'cart'} />}
 
 					<div className={styles.total}>
 						{label && <p className={styles.label}>{label}</p>}
-						<p className={styles.price}>$ 1000</p>
+						<p className={styles.price}>{`$ ${cartTotal}`}</p>
 					</div>
 
-					{buttons &&
+					{totalQuantity > 0 &&
+						buttons &&
 						buttons.map((button) => (
 							<StoryblokComponent key={button._uid} blok={button} />
 						))}

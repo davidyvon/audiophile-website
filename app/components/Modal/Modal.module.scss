@@ -1,22 +1,6 @@
 @use "../../styles/utils" as *;
 @use "../../styles/typography" as *;
 
-.outer {
-	position: relative;
-	height: 100vh;
-
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		background: var(--color-black);
-		mix-blend-mode: normal;
-		opacity: 0.4;
-	}
-}
-
 .section {
 	@include grid-xs;
 	padding-top: getSpacing(4);
@@ -74,7 +58,7 @@
 }
 
 .items {
-	padding: getSpacing(3);
+	padding: getSpacing(3)  getSpacing(3)  getSpacing(3)  getSpacing(1.5);
 	width: 100%;
 }
 
@@ -96,6 +80,10 @@
 .price {
 	@include text-heading-xs;
 	color: var(--color-white);
+}
+
+.button {
+	width: 100%;
 }
 
 // ------------------------------------------------------------
@@ -144,5 +132,9 @@
 		@include grid-lg;
 		padding-top: getSpacing(4);
 		padding-bottom: getSpacing(4);
+	}
+
+	.container {
+		grid-column: 2 / -2;
 	}
 }

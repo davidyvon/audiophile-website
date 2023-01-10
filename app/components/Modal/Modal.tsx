@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {
 	storyblokEditable,
 	SbBlokData,
@@ -6,7 +6,9 @@ import {
 } from '@storyblok/react'
 import Image from 'next/image'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
+import CartItem from '../Cart/CartItem/CartItem'
 import styles from './Modal.module.scss'
+import CartContext from '../../context/CartContext'
 
 type ModalProps = {
 	blok: {
@@ -20,62 +22,60 @@ type ModalProps = {
 		}
 		heading?: string
 		description?: string
-		modalItems?: SbBlokData[]
 		label?: string
 		buttons?: SbBlokData[]
 	}
 }
 
 const Modal = ({ blok }: ModalProps): JSX.Element => {
-	const { image, heading, description, modalItems, label, buttons } = blok
+	const { image, heading, description, label, buttons } = blok
+
+	const { cartGrandTotal, clearCart } = useContext(CartContext)
 
 	return (
-		<div className={styles.outer}>
-			<section className={styles.section} {...storyblokEditable(blok)}>
-				<div className={styles.container}>
-					<div className={styles.modal}>
-						<div className={styles.header}>
-							<div className={styles.image}>
-								{image && image.filename && (
-									<Image
-										className={styles.image}
-										src={image.filename}
-										alt={image.alt}
-										width={64}
-										height={64}
-									/>
-								)}
-							</div>
-							{heading && (
-								<div className={styles.heading}>{render(heading)}</div>
-							)}
-							{description && (
-								<p className={styles.description}>{description}</p>
+		<section className={styles.section} {...storyblokEditable(blok)}>
+			<div className={styles.container}>
+				<div className={styles.modal}>
+					<div className={styles.header}>
+						<div className={styles.image}>
+							{image && image.filename && (
+								<Image
+									className={styles.image}
+									src={image.filename}
+									alt={image.alt}
+									width={64}
+									height={64}
+								/>
 							)}
 						</div>
-
-						<div className={styles.summary}>
-							<div className={styles.items}>
-								{modalItems &&
-									modalItems.map((modalItem) => (
-										<StoryblokComponent key={modalItem._uid} blok={modalItem} />
-									))}
-							</div>
-
-							<div className={styles.total}>
-								{label && <p className={styles.label}>{label}</p>}
-								<p className={styles.price}>$ 1000</p>
-							</div>
-						</div>
-
-						{buttons &&
-							buttons.map((button) => (
-								<StoryblokComponent key={button._uid} blok={button} />
-							))}
+						{heading && <div className={styles.heading}>{render(heading)}</div>}
+						{description && <p className={styles.description}>{description}</p>}
 					</div>
+
+					<div className={styles.summary}>
+						<div className={styles.items}>
+							<CartItem type={'summary'} />
+						</div>
+
+						<div className={styles.total}>
+							{label && <p className={styles.label}>{label}</p>}
+							<p className={styles.price}>{`$ ${cartGrandTotal}`}</p>
+						</div>
+					</div>
+
+					{buttons &&
+						buttons.map((button) => (
+							<div
+								key={button._uid}
+								className={styles.button}
+								onClick={clearCart}
+							>
+								<StoryblokComponent blok={button} />
+							</div>
+						))}
 				</div>
-			</section>
-		</div>
+			</div>
+		</section>
 	)
 }
 

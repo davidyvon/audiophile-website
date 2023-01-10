@@ -6,6 +6,7 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './Form.module.scss'
+import classNames from 'classnames'
 
 type FormProps = {
 	blok: {
@@ -19,13 +20,17 @@ type FormProps = {
 		payment?: SbBlokData[]
 		summary?: SbBlokData[]
 		buttons?: SbBlokData[]
+		modal?: SbBlokData[]
 	}
+
+	className?: string
 }
 
-const Form = ({ blok }: FormProps): JSX.Element => {
-	const { heading, billing, shipping, payment, summary, buttons } = blok
+const Form = ({ blok, className }: FormProps): JSX.Element => {
+	const { heading, billing, shipping, payment, summary, buttons, modal } = blok
 
 	const [formData, setFormData] = useState({})
+	const [openModal, setOpenModal] = useState(false)
 
 	const handleChange = (name: string, value: string) => {
 		console.log('CHANGE value:', name, value)
@@ -42,10 +47,16 @@ const Form = ({ blok }: FormProps): JSX.Element => {
 		formData.forEach((value, name) => {
 			console.log('SUBMIT value:', `${name}: ${value}`)
 		})
+
+		setOpenModal(true)
 	}
 
+	const setActiveStyles = classNames(className, {
+		[styles.openModal]: openModal,
+	})
+
 	return (
-		<div className={styles.outer}>
+		<div className={classNames(styles.outer, setActiveStyles)}>
 			<section className={styles.section} {...storyblokEditable(blok)}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.checkout}>
@@ -103,12 +114,22 @@ const Form = ({ blok }: FormProps): JSX.Element => {
 							{buttons &&
 								buttons.map((button) => (
 									<div className={styles.button} key={button._uid}>
-										<StoryblokComponent blok={button} />
+										<StoryblokComponent onSubmit={handleSubmit} blok={button} />
 									</div>
 								))}
 						</div>
 					</div>
 				</form>
+
+				{modal &&
+					modal.map((props) => (
+						<div
+							key={props._uid}
+							className={classNames(styles.modal, setActiveStyles)}
+						>
+							<StoryblokComponent blok={props} />
+						</div>
+					))}
 			</section>
 		</div>
 	)

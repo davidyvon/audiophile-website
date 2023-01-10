@@ -27,7 +27,7 @@ const Home = ({ story }: HomeProps) => {
 	return (
 		<>
 			<Head>
-				<title>{story ? story.name : 'Audiophile'}</title>
+				<title>{story ? `Audiophile | ${story.name}` : 'Home'}</title>
 				<meta name='description' content='Homepage' />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
