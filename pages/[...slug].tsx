@@ -27,8 +27,8 @@ export default function Page({ story }: PageProps) {
 	return (
 		<>
 			<Head>
-				<title>{story ? story.name : 'Audiophile'}</title>
-				<meta name='description' content='Audiophile Website' />
+				<title>{story ? `Audiophile | ${story.name}` : 'Audiophile'}</title>
+				<meta name='description' content={story.name} />
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
