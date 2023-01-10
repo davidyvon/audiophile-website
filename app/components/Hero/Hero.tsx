@@ -5,6 +5,7 @@ import {
 	SbBlokData,
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import styles from './Hero.module.scss'
 
@@ -47,18 +48,28 @@ const Hero = ({ blok }: HeroProps): JSX.Element => {
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
 			<div className={styles.container}>
-				<article className={styles.content}>
+				<motion.article
+					className={styles.content}
+					initial={{ opacity: 0, translateY: 200 }}
+					animate={{ opacity: 1, translateY: 0 }}
+					transition={{ duration: 0.6, ease: 'easeOut' }}
+				>
 					{label && <p className={styles.label}>{label}</p>}
 					{heading && <div className={styles.heading}>{render(heading)}</div>}
 					{description && <p className={styles.description}>{description}</p>}
 
-					<div className={styles.button}>
+					<motion.div
+						className={styles.button}
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 0.3, ease: 'easeOut', delay: 0.6 }}
+					>
 						{buttons &&
 							buttons.map((button) => (
 								<StoryblokComponent key={button._uid} blok={button} />
 							))}
-					</div>
-				</article>
+					</motion.div>
+				</motion.article>
 
 				{imageDesktop && imageDesktop.filename && (
 					<Image
