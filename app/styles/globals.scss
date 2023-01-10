@@ -56,3 +56,7 @@ img {
 cite {
 	font-style: normal;
 }
+
+::selection {
+	background: var(--color-orange);
+}

@@ -7,6 +7,7 @@ import {
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './CtaSplit.module.scss'
+import RevealOnScroll from '../../animations/RevealOnScroll'
 
 type CtaSplitProps = {
 	blok: {
@@ -35,49 +36,51 @@ const CtaSplit = ({ blok }: CtaSplitProps): JSX.Element => {
 	const { heading, buttons, imageDesktop, imageTablet, imageMobile } = blok
 
 	return (
-		<section className={styles.section} {...storyblokEditable(blok)}>
-			<div className={styles.container}>
-				<div className={styles.images}>
-					{imageDesktop && imageDesktop.filename && (
-						<Image
-							className={styles.imageDesktop}
-							src={imageDesktop.filename}
-							alt={imageDesktop.alt}
-							width={540}
-							height={320}
-						/>
-					)}
+		<RevealOnScroll>
+			<section className={styles.section} {...storyblokEditable(blok)}>
+				<div className={styles.container}>
+					<div className={styles.images}>
+						{imageDesktop && imageDesktop.filename && (
+							<Image
+								className={styles.imageDesktop}
+								src={imageDesktop.filename}
+								alt={imageDesktop.alt}
+								width={540}
+								height={320}
+							/>
+						)}
 
-					{imageTablet && imageTablet.filename && (
-						<Image
-							className={styles.imageTablet}
-							src={imageTablet.filename}
-							alt={imageTablet.alt}
-							width={678}
-							height={640}
-						/>
-					)}
+						{imageTablet && imageTablet.filename && (
+							<Image
+								className={styles.imageTablet}
+								src={imageTablet.filename}
+								alt={imageTablet.alt}
+								width={678}
+								height={640}
+							/>
+						)}
 
-					{imageMobile && imageMobile.filename && (
-						<Image
-							className={styles.imageMobile}
-							src={imageMobile.filename}
-							alt={imageMobile.alt}
-							width={654}
-							height={400}
-						/>
-					)}
+						{imageMobile && imageMobile.filename && (
+							<Image
+								className={styles.imageMobile}
+								src={imageMobile.filename}
+								alt={imageMobile.alt}
+								width={654}
+								height={400}
+							/>
+						)}
+					</div>
+
+					<div className={styles.content}>
+						{heading && <div className={styles.heading}>{render(heading)}</div>}
+						{buttons &&
+							buttons.map((button) => (
+								<StoryblokComponent key={button._uid} blok={button} />
+							))}
+					</div>
 				</div>
-
-				<div className={styles.content}>
-					{heading && <div className={styles.heading}>{render(heading)}</div>}
-					{buttons &&
-						buttons.map((button) => (
-							<StoryblokComponent key={button._uid} blok={button} />
-						))}
-				</div>
-			</div>
-		</section>
+			</section>
+		</RevealOnScroll>
 	)
 }
 

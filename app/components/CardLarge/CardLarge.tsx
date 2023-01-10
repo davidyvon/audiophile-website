@@ -6,6 +6,7 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import styles from './CardLarge.module.scss'
+import RevealOnScroll from '../../animations/RevealOnScroll'
 
 type CardLargeProps = {
 	blok: {
@@ -22,22 +23,24 @@ const CardLarge = ({ blok }: CardLargeProps): JSX.Element => {
 	const { heading, cards } = blok
 
 	return (
-		<section className={styles.section} {...storyblokEditable(blok)}>
-			<div className={styles.container}>
-				{heading && (
-					<div className={styles.heading} {...storyblokEditable(blok)}>
-						{render(heading)}
-					</div>
-				)}
+		<RevealOnScroll>
+			<section className={styles.section} {...storyblokEditable(blok)}>
+				<div className={styles.container}>
+					{heading && (
+						<div className={styles.heading} {...storyblokEditable(blok)}>
+							{render(heading)}
+						</div>
+					)}
 
-				<div className={styles.cards}>
-					{cards &&
-						cards.map((card) => (
-							<StoryblokComponent key={card._uid} blok={card} />
-						))}
+					<div className={styles.cards}>
+						{cards &&
+							cards.map((card) => (
+								<StoryblokComponent key={card._uid} blok={card} />
+							))}
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</RevealOnScroll>
 	)
 }
 

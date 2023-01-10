@@ -8,6 +8,7 @@ import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import styles from './Preview.module.scss'
 import classNames from 'classnames'
+import RevealOnScroll from '../../animations/RevealOnScroll'
 
 type PreviewProps = {
 	blok: {
@@ -37,31 +38,33 @@ const Preview = ({ blok, className }: PreviewProps): JSX.Element => {
 	})
 
 	return (
-		<section className={styles.section} {...storyblokEditable(blok)}>
-			<div className={classNames(styles.container, sharedStyles)}>
-				<div className={classNames(styles.picture, sharedStyles)}>
-					{image && image.filename && (
-						<Image
-							className={styles.image}
-							src={image.filename}
-							alt={image.alt}
-							width={1080}
-							height={1120}
-						/>
-					)}
-				</div>
+		<RevealOnScroll>
+			<section className={styles.section} {...storyblokEditable(blok)}>
+				<div className={classNames(styles.container, sharedStyles)}>
+					<div className={classNames(styles.picture, sharedStyles)}>
+						{image && image.filename && (
+							<Image
+								className={styles.image}
+								src={image.filename}
+								alt={image.alt}
+								width={1080}
+								height={1120}
+							/>
+						)}
+					</div>
 
-				<article className={classNames(styles.content, sharedStyles)}>
-					{label && <p className={styles.label}>{label}</p>}
-					{heading && <div className={styles.heading}>{render(heading)}</div>}
-					{description && <p className={styles.description}>{description}</p>}
-					{buttons &&
-						buttons.map((button) => (
-							<StoryblokComponent key={button._uid} blok={button} />
-						))}
-				</article>
-			</div>
-		</section>
+					<article className={classNames(styles.content, sharedStyles)}>
+						{label && <p className={styles.label}>{label}</p>}
+						{heading && <div className={styles.heading}>{render(heading)}</div>}
+						{description && <p className={styles.description}>{description}</p>}
+						{buttons &&
+							buttons.map((button) => (
+								<StoryblokComponent key={button._uid} blok={button} />
+							))}
+					</article>
+				</div>
+			</section>
+		</RevealOnScroll>
 	)
 }
 
