@@ -3,27 +3,20 @@ import styles from './Counter.module.scss'
 import classNames from 'classnames'
 
 type CounterProps = {
-	blok: {
-		component: string
-		_uid: string
-		_editable?: string
-
-		size: 'small' | 'large'
-	}
-
-	quantity: number
+	size: 'small' | 'large'
+	count: number
 	onIncrease: () => void
 	onDecrease: () => void
+	onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const Counter = ({
-	blok,
-	quantity = 0,
+	size,
+	count,
 	onIncrease,
 	onDecrease,
+	onChange,
 }: CounterProps): JSX.Element => {
-	const { size } = blok
-
 	const counterStyle = classNames(
 		styles.counter,
 		{ [styles.small]: size === 'small' },
@@ -31,11 +24,11 @@ const Counter = ({
 	)
 
 	return (
-		<div className={counterStyle}>
+		<div className={counterStyle} onChange={onChange}>
 			<button onClick={onDecrease} className={styles.minus}>
 				-
 			</button>
-			<div className={styles.count}>{quantity}</div>
+			<div className={styles.count}>{count}</div>
 			<button onClick={onIncrease} className={styles.plus}>
 				+
 			</button>

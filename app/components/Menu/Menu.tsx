@@ -3,12 +3,6 @@ import styles from './Menu.module.scss'
 import classNames from 'classnames'
 
 type MenuProps = {
-	blok: {
-		component: string
-		_uid: string
-		_editable?: string
-	}
-
 	className?: string
 }
 

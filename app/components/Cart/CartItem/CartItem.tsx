@@ -1,67 +1,61 @@
-import React from 'react'
-import { storyblokEditable } from '@storyblok/react'
+import React, { useContext } from 'react'
 import Image from 'next/image'
 import Counter from '../../Counter/Counter'
 import styles from './CartItem.module.scss'
+import CartContext from '../../../context/CartContext'
 
 type CartItemProps = {
-	blok: {
-		component: string
-		_uid: string
-		_editable?: string
-
-		image?: {
-			filename: string
-			alt: '' | string
-		}
-		name?: string
-		price?: string
-	}
-
-	quantity?: number
-	onIncrease: () => void
-	onDecrease: () => void
+	type: 'cart' | 'summary' | 'confirmation'
 }
 
-const CartItem = ({
-	blok,
-	quantity = 0,
-	onIncrease,
-	onDecrease,
-}: CartItemProps): JSX.Element => {
-	const { image, name, price } = blok
+const CartItem = ({ type }: CartItemProps): JSX.Element => {
+	const { cart, updateQuantity } = useContext(CartContext)
 
 	return (
-		<div className={styles.container} {...storyblokEditable(blok)}>
-			<div className={styles.image}>
-				{image && image.filename && (
-					<Image
-						className={styles.image}
-						src={image.filename}
-						alt={image.alt}
-						width={64}
-						height={64}
-					/>
-				)}
-			</div>
+		<div className={styles.container}>
+			{cart.length > 0 &&
+				cart.map((item) => (
+					<div key={item.product.name} className={styles.items}>
+						{item.product.thumbnail && (
+							<div className={styles.image}>
+								<Image
+									className={styles.image}
+									src={item.product.thumbnail.filename}
+									alt={item.product.thumbnail.alt}
+									width={64}
+									height={64}
+								/>
+							</div>
+						)}
 
-			<div className={styles.product}>
-				{name && <p className={styles.name}>{name}</p>}
-				{price && <p className={styles.price}>{`$ ${price}`}</p>}
-			</div>
+						<div className={styles.product}>
+							<p className={styles.name}>{item.product.name}</p>
+							<p className={styles.price}>{`$ ${item.product.price}`}</p>
+						</div>
 
-			<div className={styles.counter}>
-				<Counter
-					blok={{
-						_uid: '',
-						size: 'small',
-						component: 'counter',
-					}}
-					quantity={quantity}
-					onIncrease={onIncrease}
-					onDecrease={onDecrease}
-				/>
-			</div>
+						{type === 'cart' && (
+							<div className={styles.counter}>
+								<Counter
+									size='small'
+									count={item.quantity}
+									onChange={(event) =>
+										updateQuantity(item.product, parseInt(event.target.value))
+									}
+									onIncrease={() =>
+										updateQuantity(item.product, item.quantity + 1)
+									}
+									onDecrease={() =>
+										updateQuantity(item.product, item.quantity - 1)
+									}
+								/>
+							</div>
+						)}
+
+						{type === 'summary' && (
+							<p className={styles.quantity}>{`x${item.quantity}`}</p>
+						)}
+					</div>
+				))}
 		</div>
 	)
 }

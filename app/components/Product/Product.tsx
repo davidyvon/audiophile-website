@@ -1,6 +1,14 @@
-import React from 'react'
-import { storyblokEditable } from '@storyblok/react'
+import React, { useContext, useState } from 'react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
+import CartContext from '../../context/CartContext'
 import Image from 'next/image'
+import { render } from 'storyblok-rich-text-react-renderer-ts'
+import Counter from '../Counter/Counter'
+import styles from './Product.module.scss'
 
 type ProductProps = {
 	blok: {
@@ -8,22 +16,17 @@ type ProductProps = {
 		_uid: string
 		_editable?: string
 
-		category?: 'headphone' | 'earphone' | 'speaker'
 		name?: string
+		image?: {
+			filename: string
+			alt: '' | string
+		}
+		label?: string
+		heading?: string
 		description?: string
-		features?: string
 		price?: number
-		quantity?: number
-		newProduct?: boolean
-		productImage?: {
-			filename: string
-			alt: '' | string
-		}
-		thumbnailImage?: {
-			filename: string
-			alt: '' | string
-		}
-		cartImage?: {
+		buttons?: SbBlokData[]
+		thumbnail?: {
 			filename: string
 			alt: '' | string
 		}
@@ -32,72 +35,75 @@ type ProductProps = {
 
 const Product = ({ blok }: ProductProps): JSX.Element => {
 	const {
-		category,
 		name,
+		image,
+		label,
+		heading,
 		description,
-		features,
 		price,
-		quantity,
-		newProduct,
-		productImage,
-		thumbnailImage,
-		cartImage,
+		buttons,
+		thumbnail,
 	} = blok
 
+	const { addToCart } = useContext(CartContext)
+
+	const [counter, setCounter] = useState(1)
+
+	const handleIncrease = () => counter < 99 && setCounter(counter + 1)
+	const handleDecrease = () => counter > 0 && setCounter(counter - 1)
+
+	const formatter = new Intl.NumberFormat('en-US', {
+		minimumFractionDigits: 2,
+	})
+
+	const formatedPrice = price && formatter.format(price)
+
 	return (
-		<div {...storyblokEditable(blok)}>
-			<p>Category: {category}</p>
-			<br />
-			<p>Name: {name}</p>
-			<br />
-			<p>Description: {description}</p>
-			<br />
-			<p>Features: {features}</p>
-			<br />
-			<p>Price: {price}</p>
-			<br />
-			<p>Quantity: {quantity}</p>
-			<br />
-			<p>New Product: {newProduct ? 'yes' : 'no'}</p>
-			<br />
+		<section className={styles.section} {...storyblokEditable(blok)}>
+			<div className={styles.container}>
+				<div className={styles.picture}>
+					{image && image.filename && (
+						<Image
+							className={styles.image}
+							src={image.filename}
+							alt={image.alt}
+							width={1080}
+							height={1120}
+						/>
+					)}
+				</div>
 
-			<div>
-				<div>Product Image:</div>
-				{productImage && productImage.filename && (
-					<Image
-						src={productImage.filename}
-						alt={productImage.alt}
-						width={1440}
-						height={729}
-					/>
-				)}
-			</div>
-			<br />
-			<div>
-				<div>Thumbnail Image:</div>
-				{thumbnailImage && thumbnailImage.filename && (
-					<Image
-						src={thumbnailImage.filename}
-						alt={thumbnailImage.alt}
-						width={1440}
-						height={729}
-					/>
-				)}
-			</div>
-			<br />
+				<article className={styles.content}>
+					{label && <p className={styles.label}>{label}</p>}
+					{heading && <div className={styles.heading}>{render(heading)}</div>}
+					{description && <p className={styles.description}>{description}</p>}
+					{price && <p className={styles.price}>{`$ ${formatedPrice}`}</p>}
 
-			<div>
-				<div>Cart Image:</div>
-				{cartImage && cartImage.filename && (
-					<Image
-						src={cartImage.filename}
-						alt={cartImage.alt}
-						width={1440}
-						height={729}
-					/>
-				)}
+					<div className={styles.buttons}>
+						<Counter
+							size='large'
+							count={counter}
+							onIncrease={handleIncrease}
+							onDecrease={handleDecrease}
+						/>
+
+						{buttons &&
+							buttons.map((button) => (
+								<div key={button._uid} className={styles.button}>
+									{name && price && (
+										<StoryblokComponent
+											blok={button}
+											onClick={() =>
+												addToCart({ name, price, thumbnail }, counter)
+											}
+										/>
+									)}
+								</div>
+							))}
+					</div>
+				</article>
 			</div>
-		</div>
+		</section>
 	)
 }
 

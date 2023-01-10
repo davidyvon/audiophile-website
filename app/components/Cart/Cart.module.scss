@@ -3,14 +3,13 @@
 
 .section {
 	@include grid-xs;
-	background: grey; // TEMPORARY TEST COLOR
 	padding-top: getSpacing(3);
 	padding-bottom: getSpacing(3);
+	position: relative;
 }
 
 .container,
-.cart,
-.items {
+.cart {
 	@include flex-center(column);
 	width: 100%;
 }
@@ -68,10 +67,6 @@
 	&:hover {
 		color: var(--color-orange);
 	}
-}
-
-.items {
-	gap: getSpacing(3);
 }
 
 .label {
