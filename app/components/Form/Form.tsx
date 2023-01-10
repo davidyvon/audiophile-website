@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {
 	storyblokEditable,
 	StoryblokComponent,
@@ -32,6 +32,17 @@ const Form = ({ blok, className }: FormProps): JSX.Element => {
 	const [formData, setFormData] = useState({})
 	const [openModal, setOpenModal] = useState(false)
 
+	const containerRef = useRef<null | HTMLDivElement>(null)
+
+	const scrollIntoView = () => {
+		if (containerRef.current) {
+			containerRef.current.scrollIntoView({
+				behavior: 'smooth',
+				block: 'start',
+			})
+		}
+	}
+
 	const handleChange = (name: string, value: string) => {
 		console.log('CHANGE value:', name, value)
 
@@ -49,6 +60,7 @@ const Form = ({ blok, className }: FormProps): JSX.Element => {
 		})
 
 		setOpenModal(true)
+		scrollIntoView()
 	}
 
 	const setActiveStyles = classNames(className, {
@@ -56,7 +68,10 @@ const Form = ({ blok, className }: FormProps): JSX.Element => {
 	})
 
 	return (
-		<div className={classNames(styles.outer, setActiveStyles)}>
+		<div
+			ref={containerRef}
+			className={classNames(styles.outer, setActiveStyles)}
+		>
 			<section className={styles.section} {...storyblokEditable(blok)}>
 				<form className={styles.form} onSubmit={handleSubmit}>
 					<div className={styles.checkout}>
