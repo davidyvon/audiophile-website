@@ -9,6 +9,7 @@ const PageTransition = ({ children }: PageTransition): JSX.Element => {
 	return (
 		<AnimatePresence>
 			<motion.div
+				key='mask'
 				initial={{ x: '-100%' }}
 				animate={{ x: 0 }}
 				exit={{ x: '100%' }}
@@ -24,6 +25,7 @@ const PageTransition = ({ children }: PageTransition): JSX.Element => {
 				}}
 			/>
 			<motion.div
+				key='background'
 				initial={{ x: '-100%' }}
 				animate={{ x: 0 }}
 				exit={{ x: '100%' }}
