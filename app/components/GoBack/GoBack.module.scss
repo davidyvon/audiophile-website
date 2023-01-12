@@ -1,0 +1,53 @@
+@use "../../styles/utils" as *;
+@use "../../styles/typography" as *;
+
+.container {
+	background: var(--color-white);
+
+	&.background {
+		background: var(--color-gray);
+	}
+}
+
+.nav {
+	@include grid-xs;
+	padding-top: getSpacing(1);
+}
+
+.button {
+	@include text-body;
+	padding: getSpacing(2) getSpacing(2) getSpacing(2) 0;
+	grid-column: 1 / -1;
+	width: fit-content;
+	border: none;
+	opacity: 0.5;
+	background: transparent;
+	transition: all 0.2s ease;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+// ------------------------------------------------------------
+//  MD
+// ------------------------------------------------------------
+
+@include media("md") {
+	.nav {
+		@include grid-md;
+		padding-top: getSpacing(2);
+	}
+}
+
+// ------------------------------------------------------------
+//  LG
+// ------------------------------------------------------------
+
+@include media("lg") {
+	.nav {
+		@include grid-lg;
+		padding-top: getSpacing(2);
+	}
+}
