@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
+import PageTransition from '../app/animations/PageTransition'
 
 import {
 	useStoryblokState,
@@ -24,6 +26,13 @@ type HomeProps = {
 const Home = ({ story }: HomeProps) => {
 	story = useStoryblokState(story)
 
+	const router = useRouter()
+	const [animation, setAnimation] = useState(false)
+
+	useEffect(() => {
+		setAnimation(true)
+	}, [router.pathname])
+
 	return (
 		<>
 			<Head>
@@ -32,7 +41,11 @@ const Home = ({ story }: HomeProps) => {
 				<link rel='icon' href='/favicon.ico' />
 			</Head>
 
-			<StoryblokComponent blok={story.content} />
+			{animation && (
+				<PageTransition>
+					<StoryblokComponent blok={story.content} />
+				</PageTransition>
+			)}
 		</>
 	)
 }
