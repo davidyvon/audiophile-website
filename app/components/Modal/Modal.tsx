@@ -7,8 +7,8 @@ import {
 import Image from 'next/image'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import CartItem from '../Cart/CartItem/CartItem'
-import styles from './Modal.module.scss'
 import CartContext from '../../context/CartContext'
+import styles from './Modal.module.scss'
 
 type ModalProps = {
 	blok: {

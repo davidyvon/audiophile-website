@@ -2,8 +2,8 @@ import React from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
-import styles from './About.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './About.module.scss'
 
 type AboutProps = {
 	blok: {

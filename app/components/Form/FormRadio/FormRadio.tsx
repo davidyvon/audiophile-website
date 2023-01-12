@@ -2,9 +2,9 @@
 import React, { ChangeEvent, useState } from 'react'
 import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './FormRadio.module.scss'
 import classNames from 'classnames'
 import Image from 'next/image'
+import styles from './FormRadio.module.scss'
 
 type FormRadioProps = {
 	blok: {

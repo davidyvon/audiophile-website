@@ -7,8 +7,8 @@ import {
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
 import Circles from '../../assets/icons/Circles'
-import styles from './CtaLarge.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './CtaLarge.module.scss'
 
 type CtaLargeProps = {
 	blok: {

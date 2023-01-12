@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './Button.module.scss'
-import Icon from '../../assets/icons/Chevron'
 import { storyblokEditable } from '@storyblok/react'
 import NextLink from 'next/link'
 import classNames from 'classnames'
+import Icon from '../../assets/icons/Chevron'
+import styles from './Button.module.scss'
 
 type ButtonProps = {
 	blok: {

@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './Link.module.scss'
 import { storyblokEditable } from '@storyblok/react'
 import NextLink from 'next/link'
 import Image from 'next/image'
+import styles from './Link.module.scss'
 
 type LinkProps = {
 	blok: {

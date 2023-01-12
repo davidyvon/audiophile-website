@@ -5,8 +5,8 @@ import {
 	SbBlokData,
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './CardLarge.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './CardLarge.module.scss'
 
 type CardLargeProps = {
 	blok: {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { useRouter } from 'next/router'
 import { storyblokEditable } from '@storyblok/react'
-import styles from './GoBack.module.scss'
 import classNames from 'classnames'
+import styles from './GoBack.module.scss'
 
 type GoBackProps = {
 	blok: {

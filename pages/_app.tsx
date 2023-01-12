@@ -1,9 +1,9 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
+import { storyblokInit, apiPlugin } from '@storyblok/react'
 import { CartProvider } from '../app/context/CartContext'
 import '../app/styles/globals.scss'
 
-import { storyblokInit, apiPlugin } from '@storyblok/react'
 import About from '../app/components/About/About'
 import Button from '../app/components/Button/Button'
 import CardLarge from '../app/components/CardLarge/CardLarge'

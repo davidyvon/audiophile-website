@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './Summary.module.scss'
 import CartItem from '../Cart/CartItem/CartItem'
 import CartContext from '../../context/CartContext'
+import styles from './Summary.module.scss'
 
 type SummaryProps = {
 	blok: {

@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './Heading.module.scss'
 import { storyblokEditable } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
+import styles from './Heading.module.scss'
 
 type HeadingProps = {
 	blok: {

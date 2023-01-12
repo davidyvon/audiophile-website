@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { storyblokEditable } from '@storyblok/react'
-import styles from './FormInput.module.scss'
 import classNames from 'classnames'
+import styles from './FormInput.module.scss'
 
 type FormInputProps = {
 	blok: {

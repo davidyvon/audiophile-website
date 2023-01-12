@@ -4,9 +4,9 @@ import {
 	StoryblokComponent,
 	SbBlokData,
 } from '@storyblok/react'
-import styles from './Footer.module.scss'
 import NextLink from 'next/link'
 import Image from 'next/image'
+import styles from './Footer.module.scss'
 
 type FooterProps = {
 	blok: {

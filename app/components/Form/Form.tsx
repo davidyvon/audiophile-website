@@ -5,8 +5,8 @@ import {
 	SbBlokData,
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './Form.module.scss'
 import classNames from 'classnames'
+import styles from './Form.module.scss'
 
 type FormProps = {
 	blok: {

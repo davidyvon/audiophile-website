@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 import Image from 'next/image'
 import Counter from '../../Counter/Counter'
-import styles from './CartItem.module.scss'
 import CartContext from '../../../context/CartContext'
+import styles from './CartItem.module.scss'
 
 type CartItemProps = {
 	type: 'cart' | 'summary' | 'confirmation'

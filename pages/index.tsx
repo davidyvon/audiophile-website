@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import PageTransition from '../app/animations/PageTransition'
-
 import {
 	useStoryblokState,
 	getStoryblokApi,
@@ -10,6 +8,7 @@ import {
 	StoryData,
 	SbBlokData,
 } from '@storyblok/react'
+import PageTransition from '../app/animations/PageTransition'
 
 type HomeProps = {
 	story: StoryData & {
