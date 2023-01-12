@@ -93,8 +93,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 		(total, item) => total + item.quantity * item.product.price,
 		0
 	)
-	const VAT = total * 0.2 // base on a fixed 15% VAT
-	const shippingCost = 50.0 // base on a fixed $50 shipping cost
+	const VAT = total * 0.2 // based on a fixed 20% VAT
+	const shippingCost = 50.0 // based on a fixed $50 shipping cost
 	const grandTotal = total + shippingCost
 
 	const formatter = new Intl.NumberFormat('en-US', {
