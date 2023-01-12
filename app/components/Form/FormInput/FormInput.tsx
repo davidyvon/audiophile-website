@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import classNames from 'classnames'
@@ -20,8 +19,8 @@ type FormInputProps = {
 
 	hasError?: boolean
 	className?: string
-	value?: any
-	onChange: (name: string, value: any) => void
+	value?: unknown
+	onChange: (name: string, value: unknown) => void
 }
 
 const FormInput = ({

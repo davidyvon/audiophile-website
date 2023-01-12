@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import {
 	storyblokEditable,
@@ -18,7 +17,7 @@ type FormFieldProps = {
 		inputs?: SbBlokData[]
 	}
 
-	value?: any
+	value?: unknown
 	onChange?: () => void
 }
 
