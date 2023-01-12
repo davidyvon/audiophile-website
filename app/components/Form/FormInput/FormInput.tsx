@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import classNames from 'classnames'
 import styles from './FormInput.module.scss'
@@ -17,27 +17,30 @@ type FormInputProps = {
 		errorMessage?: string
 	}
 
-	hasError?: boolean
 	className?: string
 	value?: unknown
 	onChange: (name: string, value: unknown) => void
 }
 
 const FormInput = ({
-	hasError = false,
-	className,
 	blok,
+	className,
 	value,
 	onChange,
 }: FormInputProps): JSX.Element => {
 	const { type, required, label, name, placeholder, errorMessage } = blok
 
+	const [error, setError] = useState(false)
+
+	const validate = (value: string) => required && !value
+
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		name && onChange(name, event.target.value)
+		validate(event.target.value) ? setError(true) : setError(false)
 	}
 
 	const sharedClassNames = classNames(className, {
-		[styles.hasError]: hasError,
+		[styles.hasError]: error,
 	})
 
 	return (
@@ -50,7 +53,7 @@ const FormInput = ({
 					>
 						<div className={styles.name}>{label}</div>
 						<div className={classNames(styles.error, sharedClassNames)}>
-							{errorMessage}
+							{error && errorMessage}
 						</div>
 					</label>
 					<input
