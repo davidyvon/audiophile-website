@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useContext } from 'react'
 import {
 	storyblokEditable,
 	StoryblokComponent,
@@ -6,6 +6,7 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import classNames from 'classnames'
+import CartContext from '../../context/CartContext'
 import styles from './Form.module.scss'
 
 type FormProps = {
@@ -29,6 +30,8 @@ type FormProps = {
 const Form = ({ blok, className }: FormProps): JSX.Element => {
 	const { heading, billing, shipping, payment, summary, buttons, modal } = blok
 
+	const { totalQuantity } = useContext(CartContext)
+
 	const [formData, setFormData] = useState({})
 	const [openModal, setOpenModal] = useState(false)
 
@@ -42,9 +45,8 @@ const Form = ({ blok, className }: FormProps): JSX.Element => {
 			})
 		}
 	}
-
 	const handleChange = (name: string, value: string) => {
-		console.log('CHANGE value:', name, value)
+		// console.log('CHANGE value:', name, value)
 
 		setFormData((prevFormData) => ({
 			...prevFormData,
@@ -129,7 +131,11 @@ const Form = ({ blok, className }: FormProps): JSX.Element => {
 							{buttons &&
 								buttons.map((button) => (
 									<div className={styles.button} key={button._uid}>
-										<StoryblokComponent onSubmit={handleSubmit} blok={button} />
+										<StoryblokComponent
+											disabled={totalQuantity === 0}
+											onSubmit={handleSubmit}
+											blok={button}
+										/>
 									</div>
 								))}
 						</div>

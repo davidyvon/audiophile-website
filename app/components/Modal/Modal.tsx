@@ -27,10 +27,12 @@ type ModalProps = {
 	}
 }
 
-const Modal = ({ blok }: ModalProps): JSX.Element => {
+const Modal = ({ blok }: ModalProps): JSX.Element | null => {
 	const { image, heading, description, label, buttons } = blok
 
-	const { cartGrandTotal, clearCart } = useContext(CartContext)
+	const { totalQuantity, cartGrandTotal, clearCart } = useContext(CartContext)
+
+	if (totalQuantity === 0) return null
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>
