@@ -26,11 +26,7 @@ const CardLarge = ({ blok }: CardLargeProps): JSX.Element => {
 		<RevealOnScroll>
 			<section className={styles.section} {...storyblokEditable(blok)}>
 				<div className={styles.container}>
-					{heading && (
-						<div className={styles.heading} {...storyblokEditable(blok)}>
-							{render(heading)}
-						</div>
-					)}
+					{heading && <div className={styles.heading}>{render(heading)}</div>}
 
 					<div className={styles.cards}>
 						{cards &&
