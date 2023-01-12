@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import styles from './Menu.module.scss'
 import classNames from 'classnames'
+import styles from './Menu.module.scss'
 
 type MenuProps = {
 	className?: string

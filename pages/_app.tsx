@@ -1,9 +1,9 @@
 import React from 'react'
 import type { AppProps } from 'next/app'
+import { storyblokInit, apiPlugin } from '@storyblok/react'
 import { CartProvider } from '../app/context/CartContext'
 import '../app/styles/globals.scss'
 
-import { storyblokInit, apiPlugin } from '@storyblok/react'
 import About from '../app/components/About/About'
 import Button from '../app/components/Button/Button'
 import CardLarge from '../app/components/CardLarge/CardLarge'
@@ -15,6 +15,7 @@ import CtaLarge from '../app/components/CtaLarge/CtaLarge'
 import CtaSmall from '../app/components/CtaSmall/CtaSmall'
 import CtaSplit from '../app/components/CtaSplit/CtaSplit'
 import Gallery from '../app/components/Gallery/Gallery'
+import GoBack from '../app/components/GoBack/GoBack'
 import Feature from '../app/components/Feature/Feature'
 import FeatureItem from '../app/components/Feature/FeatureItem/FeatureItem'
 import Footer from '../app/components/Footer/Footer'
@@ -51,6 +52,7 @@ const components = {
 	formInput: FormInput,
 	formRadio: FormRadio,
 	gallery: Gallery,
+	goBack: GoBack,
 	heading: Heading,
 	hero: Hero,
 	link: Link,

@@ -1,9 +1,9 @@
 import React from 'react'
-import styles from './Button.module.scss'
-import Icon from '../../assets/icons/Chevron'
 import { storyblokEditable } from '@storyblok/react'
 import NextLink from 'next/link'
 import classNames from 'classnames'
+import Icon from '../../assets/icons/Chevron'
+import styles from './Button.module.scss'
 
 type ButtonProps = {
 	blok: {
@@ -29,10 +29,15 @@ type ButtonProps = {
 			  }
 	}
 
+	disabled: boolean
 	onClick: () => void
 }
 
-const Button = ({ blok, onClick }: ButtonProps): JSX.Element => {
+const Button = ({
+	blok,
+	disabled = false,
+	onClick,
+}: ButtonProps): JSX.Element => {
 	const { type = 'button', style, fullWidth, label, link } = blok
 
 	const buttonStyle = classNames(
@@ -41,6 +46,7 @@ const Button = ({ blok, onClick }: ButtonProps): JSX.Element => {
 		{ [styles.secondary]: style === 'secondary' },
 		{ [styles.outline]: style === 'outline' },
 		{ [styles.light]: style === 'light' },
+		{ [styles.disabled]: disabled },
 		{ [styles.fullWidth]: fullWidth }
 	)
 
@@ -50,6 +56,7 @@ const Button = ({ blok, onClick }: ButtonProps): JSX.Element => {
 				{label && (
 					<button
 						type={type}
+						disabled={disabled}
 						className={styles.container}
 						onClick={onClick}
 						{...storyblokEditable(blok)}

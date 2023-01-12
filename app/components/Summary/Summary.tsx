@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './Summary.module.scss'
 import CartItem from '../Cart/CartItem/CartItem'
 import CartContext from '../../context/CartContext'
+import styles from './Summary.module.scss'
 
 type SummaryProps = {
 	blok: {
@@ -22,7 +22,7 @@ type SummaryProps = {
 const Summary = ({ blok }: SummaryProps): JSX.Element => {
 	const { heading, total, shipping, taxe, grandTotal } = blok
 
-	const { cartTotal, shippingCost, cartVAT, cartGrandTotal } =
+	const { cartTotal, totalQuantity, shippingCost, cartVAT, cartGrandTotal } =
 		useContext(CartContext)
 
 	return (
@@ -40,7 +40,9 @@ const Summary = ({ blok }: SummaryProps): JSX.Element => {
 
 					<div className={styles.total}>
 						{shipping && <p className={styles.label}>{shipping}</p>}
-						<p className={styles.amount}>{`$ ${shippingCost}`}</p>
+						<p className={styles.amount}>{`$ ${
+							totalQuantity > 0 ? shippingCost : '0.00'
+						}`}</p>
 					</div>
 
 					<div className={styles.total}>
@@ -50,7 +52,9 @@ const Summary = ({ blok }: SummaryProps): JSX.Element => {
 
 					<div className={styles.total}>
 						{grandTotal && <p className={styles.label}>{grandTotal}</p>}
-						<p className={styles.amount}>{`$ ${cartGrandTotal}`}</p>
+						<p className={styles.amount}>{`$ ${
+							totalQuantity > 0 ? cartGrandTotal : '0.00'
+						}`}</p>
 					</div>
 				</div>
 			</div>

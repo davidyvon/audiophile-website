@@ -6,8 +6,8 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
-import styles from './CtaSplit.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './CtaSplit.module.scss'
 
 type CtaSplitProps = {
 	blok: {

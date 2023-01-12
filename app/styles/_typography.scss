@@ -2,7 +2,7 @@
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
 	font-size: 3.5rem;
-	line-height: 3.63rem;
+	line-height: 3.625rem;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }
@@ -29,7 +29,7 @@
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
 	font-size: 1.75rem;
-	line-height: 2.38rem;
+	line-height: 2.375rem;
 	letter-spacing: 2px;
 	text-transform: uppercase;
 }
@@ -38,7 +38,7 @@
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
 	font-size: 1.5rem;
-	line-height: 2.06rem;
+	line-height: 2.0625rem;
 	letter-spacing: 1.7px;
 	text-transform: uppercase;
 }
@@ -46,7 +46,7 @@
 @mixin text-heading-xs {
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
-	font-size: 1.13rem;
+	font-size: 1.125rem;
 	line-height: 1.5rem;
 	letter-spacing: 1.3px;
 	text-transform: uppercase;
@@ -55,7 +55,7 @@
 @mixin text-heading-xxs {
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
-	font-size: 0.94rem;
+	font-size: 0.9375rem;
 	line-height: 1.5rem;
 	letter-spacing: 1.3px;
 	text-transform: uppercase;
@@ -64,8 +64,8 @@
 @mixin text-overline {
 	font-family: Manrope-Regular, sans-serif;
 	font-weight: 400;
-	font-size: 0.88rem;
-	line-height: 1.19rem;
+	font-size: 0.875rem;
+	line-height: 1.1875rem;
 	letter-spacing: 10px;
 	text-transform: uppercase;
 }
@@ -73,8 +73,8 @@
 @mixin text-label {
 	font-family: Manrope-Bold, sans-serif;
 	font-weight: 700;
-	font-size: 0.81rem;
-	line-height: 1.56rem;
+	font-size: 0.8125rem;
+	line-height: 1.5625rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }
@@ -82,7 +82,7 @@
 @mixin text-input {
 	font-family: Manrope-bold, sans-serif;
 	font-weight: 700;
-	font-size: 0.88rem;
+	font-size: 0.875rem;
 	letter-spacing: 0.25px;
 }
 
@@ -96,24 +96,24 @@
 @mixin text-body {
 	font-family: Manrope-Medium, sans-serif;
 	font-weight: 500;
-	font-size: 0.94rem;
-	line-height: 1.56rem;
+	font-size: 0.9375rem;
+	line-height: 1.5625rem;
 	letter-spacing: 1px;
 }
 
 @mixin text-body--strong {
 	font-family: Manrope-bold, sans-serif;
 	font-weight: 700;
-	font-size: 0.94rem;
-	line-height: 1.56rem;
+	font-size: 0.9375rem;
+	line-height: 1.5625rem;
 	letter-spacing: 1px;
 }
 
 @mixin text-body--uppercase {
 	font-family: Manrope-bold, sans-serif;
 	font-weight: 700;
-	font-size: 0.94rem;
-	line-height: 1.56rem;
+	font-size: 0.9375rem;
+	line-height: 1.5625rem;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 }

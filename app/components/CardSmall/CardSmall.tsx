@@ -4,8 +4,8 @@ import {
 	StoryblokComponent,
 	SbBlokData,
 } from '@storyblok/react'
-import styles from './CardSmall.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './CardSmall.module.scss'
 
 type CardSmallProps = {
 	blok: {

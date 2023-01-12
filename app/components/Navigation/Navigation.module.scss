@@ -76,7 +76,10 @@
 }
 
 .mobileLinks {
-	position: relative;
+	position: absolute;
+	top: 89px;
+	left: 0;
+	width: 100%;
 	z-index: 1;
 	grid-column: 1 / -1;
 	border-radius: 0 0 getRadius("s") getRadius("s");

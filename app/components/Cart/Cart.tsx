@@ -5,9 +5,9 @@ import {
 	StoryblokComponent,
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
+import CartContext from '../../context/CartContext'
 import styles from './Cart.module.scss'
 import CartItem from './CartItem/CartItem'
-import CartContext from '../../context/CartContext'
 
 type CartProps = {
 	blok: {

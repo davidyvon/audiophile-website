@@ -1,10 +1,13 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { ChangeEvent, useState } from 'react'
-import { storyblokEditable, StoryblokComponent } from '@storyblok/react'
+import {
+	storyblokEditable,
+	StoryblokComponent,
+	SbBlokData,
+} from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
-import styles from './FormRadio.module.scss'
 import classNames from 'classnames'
 import Image from 'next/image'
+import styles from './FormRadio.module.scss'
 
 type FormRadioProps = {
 	blok: {
@@ -14,7 +17,7 @@ type FormRadioProps = {
 
 		heading?: string
 		label?: string
-		inputs?: any
+		inputs?: SbBlokData[]
 		cardPayment?: string
 		cashPayment?: string
 		image?: {
@@ -25,13 +28,13 @@ type FormRadioProps = {
 	}
 
 	className?: string
-	value?: any
+	value?: unknown
 	onChange: (name: string, value: string | boolean | '') => void
 }
 
 const FormRadio = ({
-	className,
 	blok,
+	className,
 	value,
 	onChange,
 }: FormRadioProps): JSX.Element => {

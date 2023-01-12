@@ -4,9 +4,9 @@ import {
 	StoryblokComponent,
 	SbBlokData,
 } from '@storyblok/react'
-import CartContext from '../../context/CartContext'
 import Image from 'next/image'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
+import CartContext from '../../context/CartContext'
 import Counter from '../Counter/Counter'
 import styles from './Product.module.scss'
 

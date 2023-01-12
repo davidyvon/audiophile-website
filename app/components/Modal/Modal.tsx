@@ -7,8 +7,8 @@ import {
 import Image from 'next/image'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import CartItem from '../Cart/CartItem/CartItem'
-import styles from './Modal.module.scss'
 import CartContext from '../../context/CartContext'
+import styles from './Modal.module.scss'
 
 type ModalProps = {
 	blok: {
@@ -27,10 +27,12 @@ type ModalProps = {
 	}
 }
 
-const Modal = ({ blok }: ModalProps): JSX.Element => {
+const Modal = ({ blok }: ModalProps): JSX.Element | null => {
 	const { image, heading, description, label, buttons } = blok
 
-	const { cartGrandTotal, clearCart } = useContext(CartContext)
+	const { totalQuantity, cartGrandTotal, clearCart } = useContext(CartContext)
+
+	if (totalQuantity === 0) return null
 
 	return (
 		<section className={styles.section} {...storyblokEditable(blok)}>

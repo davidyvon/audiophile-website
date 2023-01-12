@@ -6,9 +6,9 @@ import {
 } from '@storyblok/react'
 import { render } from 'storyblok-rich-text-react-renderer-ts'
 import Image from 'next/image'
-import styles from './Preview.module.scss'
 import classNames from 'classnames'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './Preview.module.scss'
 
 type PreviewProps = {
 	blok: {

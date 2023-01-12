@@ -71,6 +71,18 @@
 	}
 }
 
+.disabled {
+	color: var(--color-white);
+	background: var(--color-gray-dark);
+	opacity: 0.5;
+	cursor: not-allowed;
+
+	&:hover {
+		color: var(--color-white);
+		background: var(--color-gray-dark);
+	}
+}
+
 .fullWidth {
 	width: 100%;
 }

@@ -4,13 +4,13 @@ import {
 	StoryblokComponent,
 	SbBlokData,
 } from '@storyblok/react'
-import styles from './Navigation.module.scss'
 import NextLink from 'next/link'
 import Image from 'next/image'
 import classNames from 'classnames'
 import Menu from '../Menu/Menu'
 
 import CartContext from '../../context/CartContext'
+import styles from './Navigation.module.scss'
 
 type NavigationProps = {
 	blok: {

@@ -1,8 +1,8 @@
 import React from 'react'
 import { storyblokEditable } from '@storyblok/react'
 import Image from 'next/image'
-import styles from './Gallery.module.scss'
 import RevealOnScroll from '../../animations/RevealOnScroll'
+import styles from './Gallery.module.scss'
 
 type GalleryProps = {
 	blok: {
