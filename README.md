@@ -1,6 +1,6 @@
-# Project names
+# Audiophile
 
-Project description
+A multi-page e-commerce website for a fictional audio shop
 
 [<img src="./app/assets/readme/preview.png">](https://davidyvon.github.io/)
 
@@ -10,15 +10,14 @@ Project description
 
 ## General infos
 
-- Feature A
-- Feature B
-- Feature C
-- Feature D
-- Feature E
+- Mobile First Responsive Design
+- Headless CMS
+- Cart & Checkout
+- Mobile menu
 
 ## Built with
 
-<img src="./app/assets/readme/html5.svg" width="32px">  <img src="./app/assets/readme/css3.svg" width="32px">  <img src="./app/assets/readme/javascript.svg" width="32px">  <img src="./app/assets/readme/sass.svg" width="32px">
+<img src="./app/assets/readme/next-js.svg" width="32px">  <img src="./app/assets/readme/typescript.svg" width="32px">  <img src="./app/assets/readme/sass.svg" width="32px">  <img src="./app/assets/readme/framer.svg" width="32px">  <img src="./app/assets/readme/storyblok.svg" width="32px">
 
 ## Want to see more ?
 
