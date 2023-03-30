@@ -2,11 +2,11 @@
 
 A multi-page e-commerce website for a fictional audio shop
 
-[<img src="./app/assets/readme/preview.png">](https://davidyvon.github.io/)
+[<img src="./app/assets/readme/preview.png">](https://audiophile.davidyvon.com/)
 
 ## Hi ! 👋
 
-**Thanks for checking out this [project](https://davidyvon.github.io/) !**
+**Thanks for checking out this [project](https://audiophile.davidyvon.com/) !**
 
 ## General infos
 
