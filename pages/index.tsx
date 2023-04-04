@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
 import {
 	useStoryblokState,
 	getStoryblokApi,
@@ -8,7 +7,6 @@ import {
 	StoryData,
 	SbBlokData,
 } from '@storyblok/react'
-import PageTransition from '../app/animations/PageTransition'
 
 type HomeProps = {
 	story: StoryData & {
@@ -24,13 +22,6 @@ type HomeProps = {
 
 const Home = ({ story }: HomeProps) => {
 	story = useStoryblokState(story)
-
-	const router = useRouter()
-	const [animation, setAnimation] = useState(false)
-
-	useEffect(() => {
-		setAnimation(true)
-	}, [router.pathname])
 
 	return (
 		<>
@@ -62,11 +53,7 @@ const Home = ({ story }: HomeProps) => {
 				<link rel='manifest' href='/favicon/site.webmanifest' />
 			</Head>
 
-			{animation && (
-				<PageTransition>
-					<StoryblokComponent blok={story.content} />
-				</PageTransition>
-			)}
+			<StoryblokComponent blok={story.content} />
 		</>
 	)
 }
