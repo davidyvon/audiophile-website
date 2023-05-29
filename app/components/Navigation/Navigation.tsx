@@ -66,7 +66,7 @@ const Navigation = ({ blok, className }: NavigationProps): JSX.Element => {
 							onClick={handleMenu}
 							className={classNames(styles.menu, setActiveStyles)}
 						>
-							<Menu aria-label='Menu' />
+							<Menu />
 						</div>
 
 						<div className={styles.logo}>
@@ -93,7 +93,6 @@ const Navigation = ({ blok, className }: NavigationProps): JSX.Element => {
 						</div>
 
 						<button
-							aria-label='Cart'
 							onClick={handleCart}
 							className={classNames(styles.cartIcon, setActiveStyles)}
 						>
