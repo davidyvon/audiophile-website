@@ -61,6 +61,7 @@ export async function getStaticProps({ params }) {
 
 	const sbParams = {
 		version: 'draft', // or 'published'
+		resolve_links: 'url',
 	}
 
 	const storyblokApi = getStoryblokApi()
