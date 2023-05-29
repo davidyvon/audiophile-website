@@ -26,6 +26,7 @@ export default function Page({ story }: PageProps) {
 	return (
 		<>
 			<Head>
+				<html lang='en' />
 				<title>{story ? `Audiophile | ${story.name}` : 'Audiophile'}</title>
 				<meta
 					name='description'

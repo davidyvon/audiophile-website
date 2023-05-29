@@ -26,6 +26,7 @@ const Home = ({ story }: HomeProps) => {
 	return (
 		<>
 			<Head>
+				<html lang='en' />
 				<title>
 					{story ? `Audiophile | ${story.name}` : 'Audiophile | Home'}
 				</title>
